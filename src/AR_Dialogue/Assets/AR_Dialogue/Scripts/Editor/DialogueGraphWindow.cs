@@ -35,7 +35,7 @@ public class DialogueGraphWindow : EditorWindow
         if(w.graph.Nodes == null) graph.Nodes = new List<ANode>();
         foreach (var node in graph.Nodes)
         {
-            w.nodesView.Add(new NodeView(node.posInGraph , 200 , 50 , w.nodeStyle , node.GetName()));
+            w.nodesView.Add(new NodeView(node , 200 , 50 , w.nodeStyle , node.GetName()));
         }
         return w;
     }
@@ -54,7 +54,8 @@ public class DialogueGraphWindow : EditorWindow
     private void OnGUI()
     {
         DrawNodes();
-        ProcessEvents(Event.current);
+        ProcessNodeEvents(Event.current);
+        ProcessGraphEvents(Event.current);
         if(GUI.changed) Repaint();
     }
 
@@ -67,7 +68,19 @@ public class DialogueGraphWindow : EditorWindow
         }
     }
 
-    private void ProcessEvents(Event e)
+    private void ProcessNodeEvents(Event e)
+    {
+        if (nodesView == null)
+            return;
+        foreach (var nodeView in nodesView)
+        {
+            bool guiChanged = nodeView.ProcessEvents(e);
+            if(guiChanged)
+                GUI.changed = true;
+        }
+    }
+
+    private void ProcessGraphEvents(Event e)
     {
         switch (e.type)
         {
@@ -127,7 +140,7 @@ public class DialogueGraphWindow : EditorWindow
         //CreateInstance(nodeToAdd);
         graph.Nodes.Add(nodeToAdd);
         Debug.Log(nodeToAdd);
-        nodesView.Add(new NodeView(pos , 200 , 50 , nodeStyle , nodeToAdd.GetName()));
+        nodesView.Add(new NodeView(nodeToAdd , 200 , 50 , nodeStyle , nodeToAdd.GetName()));
         EditorUtility.SetDirty(graph);
         Debug.Log(nodeToAdd.name);
     }

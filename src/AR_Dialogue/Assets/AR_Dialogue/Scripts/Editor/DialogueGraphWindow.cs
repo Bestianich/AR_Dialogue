@@ -127,6 +127,8 @@ public class DialogueGraphWindow : EditorWindow
         //UnityEngine.Object obj = ScriptableObject.CreateInstance(nodeType);
         var nodeToAdd = Activator.CreateInstance(nodeType) as ANode;
 
+        AssetDatabase.AddObjectToAsset(nodeToAdd , graph);
+        
         if (nodeToAdd == null)
         {
             Debug.LogError($"Cannot create node of type {nodeType}");

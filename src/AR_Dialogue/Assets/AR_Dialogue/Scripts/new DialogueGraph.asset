@@ -13,4 +13,31 @@ MonoBehaviour:
   m_Name: new DialogueGraph
   m_EditorClassIdentifier: AR_DialogueRuntime::DialogueGraph
   Nodes:
-  - {fileID: 0}
+  - {fileID: 605429392573013836}
+  - {fileID: 7416989112271314143}
+--- !u!114 &605429392573013836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#0
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 778, y: 367}
+--- !u!114 &7416989112271314143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#1
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 1081, y: 309}

@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using AR_DialogueEditor;
+using NUnit.Framework.Interfaces;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.Graphs;
@@ -7,24 +10,9 @@ public class DialogueGraphWindow : EditorWindow
 {
     
     private DialogueGraph graph;
-    
+    private List<NodeView> nodesView;
+    private GUIStyle nodeStyle;
 
-    private void OnGUI()
-    {
-        
-    }
-
-    private void DrawNodes()
-    {
-        
-    }
-
-    private void ProcessEvents(Event e)
-    {
-        
-    }
-
-    
     [OnOpenAsset]
     //Function for when you open an DialogueGraph to show its window 
     public static bool OnOpenAsset(int instanceID, int line)
@@ -42,4 +30,74 @@ public class DialogueGraphWindow : EditorWindow
         w.graph = graph;
         return w;
     }
+
+
+    private void OnEnable()
+    {
+        nodeStyle = new GUIStyle();
+        nodeStyle.normal.background = Texture2D.whiteTexture;
+        nodeStyle.border = new RectOffset(12, 12, 12, 12);
     }
+    private void OnGUI()
+    {
+        DrawNodes();
+        ProcessEvents(Event.current);
+        if(GUI.changed) Repaint();
+    }
+
+    private void DrawNodes()
+    {
+        // if (nodesView == null && graph.Nodes != null)
+        // {
+        //     nodesView = new List<NodeView>();
+        //     foreach (var node in graph.Nodes)
+        //     {
+        //         nodesView.Add(new NodeView(node.posInGraph , 200 , 50 , nodeStyle));
+        //     }
+        // }
+        // else
+        //     return;
+        if(nodesView == null)
+            return;
+        foreach (var nodeView in nodesView)
+        {
+            nodeView.Draw();
+        }
+    }
+
+    private void ProcessEvents(Event e)
+    {
+        switch (e.type)
+        {
+            case EventType.MouseDown:
+                if (e.button == 1) 
+                    ProcessContextMenu(e.mousePosition);
+                break;
+        }
+        
+    }
+    
+    private void ProcessContextMenu(Vector2 mousePosition)
+    {
+        GenericMenu menu = new GenericMenu();
+        menu.AddItem(new GUIContent("Add Node") , false , () => OnClickAddNode(mousePosition , new ANode()));
+        menu.ShowAsContext();
+    }
+
+    private void OnClickAddNode(Vector2 pos , ANode nodeToAdd)
+    {
+        Debug.Log("ADDING NODE VIEW TO GRAPH");
+        if (graph.Nodes == null)
+            graph.Nodes = new List<ANode>();
+        
+        if(nodesView == null)
+            nodesView = new List<NodeView>();
+        
+        nodeToAdd.posInGraph = pos;
+        graph.Nodes.Add(nodeToAdd);
+        nodesView.Add(new NodeView(pos , 200 , 50 , nodeStyle));
+        
+    }
+    
+
+}

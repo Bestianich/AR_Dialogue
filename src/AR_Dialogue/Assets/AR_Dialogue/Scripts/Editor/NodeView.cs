@@ -10,10 +10,11 @@ namespace AR_DialogueEditor
         
         public GUIStyle style;
 
-        public NodeView(Vector2 position, float width, float height, GUIStyle style)
+        public NodeView(Vector2 position, float width, float height, GUIStyle style , string title)
         {
             this.rect = new Rect(position.x, position.y, width, height);
             this.style = style;
+            this.title = title;
         }
 
         public void Drag(Vector2 delta)

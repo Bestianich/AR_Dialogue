@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using AR_DialogueEditor;
 using NUnit.Framework.Interfaces;
 using UnityEditor;
@@ -80,11 +82,27 @@ public class DialogueGraphWindow : EditorWindow
     private void ProcessContextMenu(Vector2 mousePosition)
     {
         GenericMenu menu = new GenericMenu();
-        menu.AddItem(new GUIContent("Add Node") , false , () => OnClickAddNode(mousePosition , new ANode()));
+        var nodeTypes = ARDialogueUtilities.GetAllTypeOfANodes();
+        if (!nodeTypes.Any())
+        {
+            menu.AddDisabledItem(new GUIContent("No Nodes Found"));
+            menu.ShowAsContext();
+            return;
+        }
+
+        foreach (var type in nodeTypes)
+        {
+            if(type == null)
+                continue;
+            menu.AddItem(new GUIContent(type.Name), false , () => OnClickAddNode(mousePosition , type));
+        }
+        menu.AddSeparator("");
+        menu.AddDisabledItem(new GUIContent("Select Node To ADD"));
+        //menu.AddItem(new GUIContent("Add Node") , false , () => OnClickAddNode(mousePosition , AssetDatabase.CreateAsset(ANode , )));
         menu.ShowAsContext();
     }
 
-    private void OnClickAddNode(Vector2 pos , ANode nodeToAdd)
+    private void OnClickAddNode(Vector2 pos , Type nodeType)
     {
         Debug.Log("ADDING NODE VIEW TO GRAPH");
         if (graph.Nodes == null)
@@ -93,10 +111,24 @@ public class DialogueGraphWindow : EditorWindow
         if(nodesView == null)
             nodesView = new List<NodeView>();
         
-        nodeToAdd.posInGraph = pos;
-        graph.Nodes.Add(nodeToAdd);
-        nodesView.Add(new NodeView(pos , 200 , 50 , nodeStyle));
+        UnityEngine.Object obj = ScriptableObject.CreateInstance(nodeType);
+        var nodeToAdd = obj as ANode;
+
+        if (nodeToAdd == null)
+        {
+            Debug.LogError($"Cannot create node of type {nodeType}");
+            return;
+        }
         
+        nodeToAdd.name = nodeType.Name + "#" + graph.Nodes.Count;
+        
+        nodeToAdd.posInGraph = pos;
+        //AssetDatabase.AddObjectToAsset(nodeToAdd, graph.Nodes[0]);
+        //CreateInstance(nodeToAdd);
+        graph.Nodes.Add(nodeToAdd);
+        nodesView.Add(new NodeView(pos , 200 , 50 , nodeStyle , nodeToAdd.name));
+        EditorUtility.SetDirty(graph);
+        Debug.Log(nodeToAdd.name);
     }
     
 

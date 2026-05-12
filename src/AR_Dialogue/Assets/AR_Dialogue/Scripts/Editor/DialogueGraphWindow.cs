@@ -30,6 +30,13 @@ public class DialogueGraphWindow : EditorWindow
         if(graph == null) return null;
         DialogueGraphWindow w = GetWindow<DialogueGraphWindow>(graph.name , true);
         w.graph = graph;
+        if (w.nodesView == null)
+            w.nodesView = new List<NodeView>();
+        if(w.graph.Nodes == null) graph.Nodes = new List<ANode>();
+        foreach (var node in graph.Nodes)
+        {
+            w.nodesView.Add(new NodeView(node.posInGraph , 200 , 50 , w.nodeStyle , node.GetName()));
+        }
         return w;
     }
 
@@ -39,6 +46,10 @@ public class DialogueGraphWindow : EditorWindow
         nodeStyle = new GUIStyle();
         nodeStyle.normal.background = Texture2D.whiteTexture;
         nodeStyle.border = new RectOffset(12, 12, 12, 12);
+
+        
+        
+        
     }
     private void OnGUI()
     {
@@ -49,18 +60,7 @@ public class DialogueGraphWindow : EditorWindow
 
     private void DrawNodes()
     {
-        // if (nodesView == null && graph.Nodes != null)
-        // {
-        //     nodesView = new List<NodeView>();
-        //     foreach (var node in graph.Nodes)
-        //     {
-        //         nodesView.Add(new NodeView(node.posInGraph , 200 , 50 , nodeStyle));
-        //     }
-        // }
-        // else
-        //     return;
-        if(nodesView == null)
-            return;
+        
         foreach (var nodeView in nodesView)
         {
             nodeView.Draw();
@@ -111,8 +111,8 @@ public class DialogueGraphWindow : EditorWindow
         if(nodesView == null)
             nodesView = new List<NodeView>();
         
-        UnityEngine.Object obj = ScriptableObject.CreateInstance(nodeType);
-        var nodeToAdd = obj as ANode;
+        //UnityEngine.Object obj = ScriptableObject.CreateInstance(nodeType);
+        var nodeToAdd = Activator.CreateInstance(nodeType) as ANode;
 
         if (nodeToAdd == null)
         {
@@ -126,7 +126,8 @@ public class DialogueGraphWindow : EditorWindow
         //AssetDatabase.AddObjectToAsset(nodeToAdd, graph.Nodes[0]);
         //CreateInstance(nodeToAdd);
         graph.Nodes.Add(nodeToAdd);
-        nodesView.Add(new NodeView(pos , 200 , 50 , nodeStyle , nodeToAdd.name));
+        Debug.Log(nodeToAdd);
+        nodesView.Add(new NodeView(pos , 200 , 50 , nodeStyle , nodeToAdd.GetName()));
         EditorUtility.SetDirty(graph);
         Debug.Log(nodeToAdd.name);
     }

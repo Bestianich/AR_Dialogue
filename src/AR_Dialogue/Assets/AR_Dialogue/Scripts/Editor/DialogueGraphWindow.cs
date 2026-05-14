@@ -7,13 +7,24 @@ using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.Graphs;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class DialogueGraphWindow : EditorWindow
 {
     
     private DialogueGraph graph;
     private List<NodeView> nodesView;
+    
     private GUIStyle nodeStyle;
+    private GUIStyle inPortStyle;
+    private GUIStyle outPortStyle;
+
+    private NodeView selectedNodeView;
+    
+    private PortView selectedInPortView;
+    private PortView selectedOutPortView;
+    
+    public static Action<NodeView> OnNodeSelected;
 
     [OnOpenAsset]
     //Function for when you open an DialogueGraph to show its window 
@@ -35,7 +46,7 @@ public class DialogueGraphWindow : EditorWindow
         if(w.graph.Nodes == null) graph.Nodes = new List<ANode>();
         foreach (var node in graph.Nodes)
         {
-            w.nodesView.Add(new NodeView(node , 200 , 50 , w.nodeStyle , node.GetName()));
+            w.nodesView.Add(new NodeView(node , 200 , 50 , w.nodeStyle , w.inPortStyle , w.outPortStyle, node.GetName()));
         }
         return w;
     }
@@ -47,10 +58,24 @@ public class DialogueGraphWindow : EditorWindow
         nodeStyle.normal.background = Texture2D.whiteTexture;
         nodeStyle.border = new RectOffset(12, 12, 12, 12);
 
+        inPortStyle = new GUIStyle();
+        inPortStyle.normal.background = Texture2D.redTexture;
+        inPortStyle.active.background = Texture2D.redTexture;
+        inPortStyle.border = new RectOffset(4, 4, 12, 12);
         
-        
-        
+        outPortStyle = new GUIStyle();
+        outPortStyle.normal.background = Texture2D.blackTexture;
+        outPortStyle.active.background = Texture2D.blackTexture;
+        outPortStyle.border = new RectOffset(4, 4, 12, 12);
+
+        OnNodeSelected += OnSelectNodeView;
     }
+
+    private void OnDisable()
+    {
+        OnNodeSelected -= OnSelectNodeView;
+    }
+    
     private void OnGUI()
     {
         DrawNodes();
@@ -61,7 +86,8 @@ public class DialogueGraphWindow : EditorWindow
 
     private void DrawNodes()
     {
-        
+        if (nodesView == null)
+            return;
         foreach (var nodeView in nodesView)
         {
             nodeView.Draw();
@@ -88,10 +114,17 @@ public class DialogueGraphWindow : EditorWindow
                 if (e.button == 1) 
                     ProcessContextMenu(e.mousePosition);
                 break;
+            case EventType.KeyDown:
+                if (e.keyCode == KeyCode.Delete)
+                {
+                    Debug.Log("DESSTRO");
+                    DeleteNodeView(selectedNodeView);
+                }
+                break;
         }
         
     }
-    
+
     private void ProcessContextMenu(Vector2 mousePosition)
     {
         GenericMenu menu = new GenericMenu();
@@ -114,7 +147,28 @@ public class DialogueGraphWindow : EditorWindow
         //menu.AddItem(new GUIContent("Add Node") , false , () => OnClickAddNode(mousePosition , AssetDatabase.CreateAsset(ANode , )));
         menu.ShowAsContext();
     }
+    
+    
+    private void OnSelectNodeView(NodeView nodeView)
+    {
+        selectedNodeView = nodeView;
+        Debug.Log(selectedNodeView);
+    }
+    private void DeleteNodeView(NodeView nodeView)
+    {
+        if (nodeView == null)
+        {
+            Debug.LogError("NodeView to delete is null");
+            return;
+        }
+        graph.Nodes.Remove(nodeView.NodeReference);
+        nodesView.Remove(nodeView);
+        AssetDatabase.RemoveObjectFromAsset(nodeView.NodeReference);
+        Repaint();
+    }
 
+ 
+    // Function to add a new Node to the graph
     private void OnClickAddNode(Vector2 pos , Type nodeType)
     {
         Debug.Log("ADDING NODE VIEW TO GRAPH");
@@ -142,7 +196,7 @@ public class DialogueGraphWindow : EditorWindow
         //CreateInstance(nodeToAdd);
         graph.Nodes.Add(nodeToAdd);
         Debug.Log(nodeToAdd);
-        nodesView.Add(new NodeView(nodeToAdd , 200 , 50 , nodeStyle , nodeToAdd.GetName()));
+        nodesView.Add(new NodeView(nodeToAdd , 200 , 50 , nodeStyle , inPortStyle , outPortStyle, nodeToAdd.GetName()));
         EditorUtility.SetDirty(graph);
         Debug.Log(nodeToAdd.name);
     }

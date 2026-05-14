@@ -11,13 +11,18 @@ using UnityEngine.UIElements;
         public GUIStyle style;
 
         public bool isDragged;
+        
+        public PortView InPortView;
+        public PortView OutPortView;
 
-        public NodeView(ANode nodeReference, float width, float height, GUIStyle style , string title)
+        public NodeView(ANode nodeReference, float width, float height, GUIStyle style , GUIStyle InPortStyle, GUIStyle OutPortStyle , string title)
         {
             this.NodeReference = nodeReference;
             this.rect = new Rect(NodeReference.posInGraph.x, NodeReference.posInGraph.y, width, height);
             this.style = style;
             this.title = title;
+            InPortView = new PortView(this, PortType.IN, InPortStyle);
+            OutPortView = new PortView(this, PortType.OUT, OutPortStyle);
         }
 
         public void Drag(Vector2 delta)
@@ -28,6 +33,8 @@ using UnityEngine.UIElements;
 
         public void Draw()
         {
+            InPortView.Draw();
+            OutPortView.Draw();
             GUI.Box(rect, title, style);
         }
 
@@ -53,8 +60,10 @@ using UnityEngine.UIElements;
                 case EventType.MouseDrag:
                     if (e.button == 0 && isDragged)
                     {
-                        Drag(e.delta);
+                        DialogueGraphWindow.OnNodeSelected?.Invoke(this);
+                        if (!isDragged) return true;
                         e.Use();
+                        Drag(e.delta);
                         return true;
                     }
                     break;

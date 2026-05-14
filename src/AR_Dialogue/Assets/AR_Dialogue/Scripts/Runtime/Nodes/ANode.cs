@@ -9,4 +9,6 @@ public abstract class ANode : ScriptableObject
     {
         return "ANode";
     }
+    
+    
 }

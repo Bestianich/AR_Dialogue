@@ -25,10 +25,6 @@ public static class ARDialogueUtilities
               
               var nodeTypes = assemblies.SelectMany(assembly => assembly.GetTypes())
                      .Where(type => type.IsSubclassOf(typeof(ANode)) && !type.IsAbstract).OrderBy(t => t.Name);
-              foreach (var type in nodeTypes)
-              {
-                     Debug.Log(type.Name);
-              }
               return nodeTypes;
        }
 }

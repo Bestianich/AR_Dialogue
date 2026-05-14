@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5678044542480170509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#3
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 1340, y: 718}
+--- !u!114 &-4335305689688661865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#3
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 1113, y: 656}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,8 +39,24 @@ MonoBehaviour:
   m_Name: new DialogueGraph
   m_EditorClassIdentifier: AR_DialogueRuntime::DialogueGraph
   Nodes:
-  - {fileID: 605429392573013836}
-  - {fileID: 7416989112271314143}
+  - {fileID: 300953444586637875}
+  - {fileID: 7054784495577332329}
+  - {fileID: 9056758790944544736}
+  - {fileID: -4335305689688661865}
+  - {fileID: 5925454492153102000}
+--- !u!114 &300953444586637875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#0
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 625, y: 461}
 --- !u!114 &605429392573013836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +70,71 @@ MonoBehaviour:
   m_Name: NodeTest#0
   m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
   posInGraph: {x: 778, y: 367}
+--- !u!114 &2041342200947960376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#4
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 1119, y: 189}
+--- !u!114 &3733052466080879145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#2
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 1003, y: 690}
+--- !u!114 &5925454492153102000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#4
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 1320, y: 491}
+--- !u!114 &7054784495577332329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#1
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 1071, y: 363}
+--- !u!114 &7275430545805892315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#5
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 1205, y: 435}
 --- !u!114 &7416989112271314143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41,3 +148,16 @@ MonoBehaviour:
   m_Name: NodeTest#1
   m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
   posInGraph: {x: 1081, y: 309}
+--- !u!114 &9056758790944544736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d46203519e4727ba6131f53b4454ed, type: 3}
+  m_Name: NodeTest#2
+  m_EditorClassIdentifier: AR_DialogueRuntime::NodeTest
+  posInGraph: {x: 736, y: 637}

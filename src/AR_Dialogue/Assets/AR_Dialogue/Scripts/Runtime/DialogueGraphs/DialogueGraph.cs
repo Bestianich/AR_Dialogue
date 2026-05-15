@@ -6,4 +6,5 @@ using UnityEngine;
     public class DialogueGraph : ScriptableObject
     {
         public List<ANode> Nodes = new List<ANode>();
+        public StartNode StartNode;
     }

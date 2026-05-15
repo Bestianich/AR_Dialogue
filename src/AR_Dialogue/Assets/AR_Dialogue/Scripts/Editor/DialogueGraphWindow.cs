@@ -44,9 +44,10 @@ public class DialogueGraphWindow : EditorWindow
         if (w.nodesView == null)
             w.nodesView = new List<NodeView>();
         if(w.graph.Nodes == null) graph.Nodes = new List<ANode>();
+        
         foreach (var node in graph.Nodes)
         {
-            w.nodesView.Add(new NodeView(node , 200 , 50 , w.nodeStyle , w.inPortStyle , w.outPortStyle, node.GetName()));
+            w.nodesView.Add(new NodeView(node , 150 , 50 , w.nodeStyle , w.inPortStyle , w.outPortStyle, node.GetName()));
         }
         return w;
     }
@@ -55,17 +56,17 @@ public class DialogueGraphWindow : EditorWindow
     private void OnEnable()
     {
         nodeStyle = new GUIStyle();
-        nodeStyle.normal.background = Texture2D.whiteTexture;
+        nodeStyle.normal.background = EditorGUIUtility.Load("Assets/AR_Dialogue/Resources/xnode_node.png") as Texture2D;
         nodeStyle.border = new RectOffset(12, 12, 12, 12);
 
         inPortStyle = new GUIStyle();
-        inPortStyle.normal.background = Texture2D.redTexture;
-        inPortStyle.active.background = Texture2D.redTexture;
+        inPortStyle.normal.background = EditorGUIUtility.Load("Assets/AR_Dialogue/Resources/xnode_dot.png") as Texture2D;
+        //inPortStyle.active.background = Texture2D.redTexture;
         inPortStyle.border = new RectOffset(4, 4, 12, 12);
         
         outPortStyle = new GUIStyle();
-        outPortStyle.normal.background = Texture2D.blackTexture;
-        outPortStyle.active.background = Texture2D.blackTexture;
+        outPortStyle.normal.background = EditorGUIUtility.Load("Assets/AR_Dialogue/Resources/xnode_dot.png") as Texture2D;
+        //outPortStyle.active.background = Texture2D.blackTexture;
         outPortStyle.border = new RectOffset(4, 4, 12, 12);
 
         OnNodeSelected += OnSelectNodeView;

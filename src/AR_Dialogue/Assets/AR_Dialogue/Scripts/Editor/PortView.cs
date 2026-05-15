@@ -18,24 +18,26 @@ public class PortView
         NodeView = nodeView;
         Type = type;
         Style = style;
-        Rect = new Rect(0 , 0 , 10f, 20f);
+        Rect = new Rect(0 , 0 , 20f, 20f);
     }
     
     public void Draw()
     {
+        Debug.Log("PROTAAAA");
         Rect.y = NodeView.rect.y + NodeView.rect.height * 0.5f - Rect.height * 0.5f;
 
         switch (Type)
         {
             case PortType.IN:
-                Rect.x = NodeView.rect.x - Rect.width + 8f;
+                Rect.x = NodeView.rect.x - Rect.width + 10f;
                 break;
             case PortType.OUT:
-                Rect.x = NodeView.rect.x + Rect.width - 8f;
+                Rect.x = NodeView.rect.x + NodeView.rect.width  - 10f;
                 break;
         }
 
-        if (GUI.Button(Rect, "", Style))
+        Debug.Log(Rect);
+        if (GUI.Button(Rect, "" + Type, Style))
         {
             
         }

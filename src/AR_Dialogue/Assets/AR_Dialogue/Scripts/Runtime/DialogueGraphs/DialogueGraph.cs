@@ -6,4 +6,5 @@ using XNode;
 [CreateAssetMenu(fileName = "newDialogueGraph", menuName = "AR_Dialogue/New Dialogue Graph")]
 public class ADialogueGraph : NodeGraph 
 { 
+    
 }

@@ -2,15 +2,16 @@
 using UnityEngine;
 using XNode;
 
-public class DialogueNode : ANode<string>
+[UsesTextField]
+public class DialogueNode : ANode
 {
     [Input] public NodePort InputPort;
     [TextArea(10 , 10)]
     public string Speech;
     [Output] public NodePort OutputPort;
     
-    public override string Execute()
-    {
+    public override object Execute()
+    { 
         return Speech;
     }
     

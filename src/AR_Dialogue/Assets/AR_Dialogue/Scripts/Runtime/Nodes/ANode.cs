@@ -5,7 +5,7 @@ using UnityEngine;
 using XNode;
 using Object = System.Object;
 
-public abstract class ANode<T> : Node
+public abstract class ANode : Node
 {
 
 	// Use this for initialization
@@ -15,7 +15,7 @@ public abstract class ANode<T> : Node
 	}
 
 	//What the node does
-	public abstract T Execute();
+	public abstract object Execute();
 
 	public virtual Type GetNodeType()
 	{
@@ -26,4 +26,26 @@ public abstract class ANode<T> : Node
 	public override object GetValue(NodePort port) {
 		return port.node; // Replace this
 	}
+
 }
+
+
+#region Attributes
+
+	[AttributeUsage(AttributeTargets.Class , Inherited = false , AllowMultiple = false)]
+	public class HideInNodeEditorAttribute : Attribute
+	{
+		public bool HideInEditor { get;}
+
+		public HideInNodeEditorAttribute(bool hideInEditor)
+		{
+			HideInEditor = hideInEditor;
+		}
+	}
+
+	[AttributeUsage(AttributeTargets.Class , Inherited = false , AllowMultiple = false)]
+	public class UsesTextField : Attribute
+	{
+		
+	}
+#endregion

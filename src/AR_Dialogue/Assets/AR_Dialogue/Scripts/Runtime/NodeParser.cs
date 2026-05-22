@@ -1,21 +1,44 @@
+using System;
+using System.Reflection;
+using TMPro;
 using UnityEngine;
 using XNode;
 
 public class NodeParser : MonoBehaviour
 {
         [SerializeField] private DialogueGraph _graph;
-
+        [SerializeField] private TextMeshProUGUI _textField;
+        
         public ANode _currentNode;
 
         private void Awake()
         {
             if (_currentNode == null)
                 _currentNode = _graph.StartNode;
+            NextNode("OutputPort");
         }
         
         [ContextMenu("Parse")]
         public void Parse()
-        { 
+        {
+            Debug.Log("Node to execute: "  + _currentNode.ToString());
+            var method = _currentNode.GetType().GetMethod("Execute");
+            if (method == null)
+            {
+                Debug.LogError($"Method execute not found");
+                return;
+            }
+            
+            var attributes = method.GetCustomAttributes();
+            foreach (var attribute in attributes)
+            {
+                if (attribute is UsesTextFieldAttribute)
+                {
+                    //var usesTextField = attribute as UsesTextFieldAttribute;
+                    Debug.Log($"UsesTextFieldAttribute: {attribute}");
+                    _textField.text = (string)_currentNode.Execute();
+                }
+            }
             NextNode("OutputPort");
         }
 
@@ -29,7 +52,6 @@ public class NodeParser : MonoBehaviour
             }
             
             var port =  _currentNode.GetPort(outPortField);
-            Debug.Log(port.fieldName);
 
             if (!port.IsConnected)
             {
@@ -38,10 +60,6 @@ public class NodeParser : MonoBehaviour
             }
             
             _currentNode = port.Connection.node as ANode;
-            
-            
-            // var nextNode = port..node as ANode;
-            // _currentNode = nextNode;
             
         }
 }

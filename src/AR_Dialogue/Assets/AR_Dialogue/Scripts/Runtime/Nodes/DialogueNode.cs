@@ -2,7 +2,6 @@
 using UnityEngine;
 using XNode;
 
-[UsesTextField]
 public class DialogueNode : ANode
 {
     [Input] public NodePort InputPort;
@@ -10,6 +9,7 @@ public class DialogueNode : ANode
     public string Speech;
     [Output] public NodePort OutputPort;
     
+    [UsesTextField("Text")]
     public override object Execute()
     { 
         return Speech;

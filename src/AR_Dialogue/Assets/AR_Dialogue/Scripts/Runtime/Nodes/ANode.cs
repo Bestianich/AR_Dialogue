@@ -43,9 +43,14 @@ public abstract class ANode : Node
 		}
 	}
 
-	[AttributeUsage(AttributeTargets.Class , Inherited = false , AllowMultiple = false)]
-	public class UsesTextField : Attribute
+	[AttributeUsage(AttributeTargets.Method , Inherited = false , AllowMultiple = false)]
+	public class UsesTextFieldAttribute : Attribute
 	{
-		
+		public string Text { get;}
+
+		public UsesTextFieldAttribute(string text)
+		{
+			Text = text;
+		}
 	}
 #endregion

@@ -5,14 +5,18 @@ public class NodeParser : MonoBehaviour
 {
         [SerializeField] private DialogueGraph _graph;
 
-        private ANode _currentNode;
+        public ANode _currentNode;
+
+        private void Awake()
+        {
+            if (_currentNode == null)
+                _currentNode = _graph.StartNode;
+        }
         
+        [ContextMenu("Parse")]
         public void Parse()
         { 
-            if (_currentNode == null) 
-                _currentNode = _graph.StartNode;
-            
-            NextNode("OutPort");
+            NextNode("OutputPort");
         }
 
         public void NextNode(string outPortField)
@@ -25,8 +29,19 @@ public class NodeParser : MonoBehaviour
             }
             
             var port =  _currentNode.GetPort(outPortField);
-            var nextNode = port.Connection.node as ANode;
-            _currentNode = nextNode;
+            Debug.Log(port.fieldName);
+
+            if (!port.IsConnected)
+            {
+                Debug.LogWarning("Outport port is not connected to anything. Is the dialogue graph ended?");
+                return;
+            }
+            
+            _currentNode = port.Connection.node as ANode;
+            
+            
+            // var nextNode = port..node as ANode;
+            // _currentNode = nextNode;
             
         }
 }

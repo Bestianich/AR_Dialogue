@@ -3,7 +3,8 @@
     "rootNamespace": "AR_DialogueEditor",
     "references": [
         "GUID:002c1bbed08fa44d282ef34fd5edb138",
-        "GUID:54037fa5eafe03947ba623a744628e75"
+        "GUID:54037fa5eafe03947ba623a744628e75",
+        "GUID:b8e24fd1eb19b4226afebb2810e3c19b"
     ],
     "includePlatforms": [
         "Editor"

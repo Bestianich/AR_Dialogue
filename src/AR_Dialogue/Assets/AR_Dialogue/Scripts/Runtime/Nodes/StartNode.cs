@@ -1,7 +1,10 @@
-namespace AR_Dialogue.Scripts.Runtime.Nodes
+
+public class StartNode : ANode<string>
 {
-    public class StartNode
+    [Output] public int OutPort;
+    
+    public override string Execute()
     {
-        
+        return "Starting Node";
     }
 }

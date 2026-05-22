@@ -1,9 +1,11 @@
 using UnityEngine;
+using XNode;
 
-namespace AR_Dialogue.Scripts.Runtime
+public class NodeParser : MonoBehaviour
 {
-    public class NodeParser : MonoBehaviour
-    {
-        
-    }
+        [SerializeField] private NodeGraph _graph;
+
+        public void Parse()
+        {
+        }
 }

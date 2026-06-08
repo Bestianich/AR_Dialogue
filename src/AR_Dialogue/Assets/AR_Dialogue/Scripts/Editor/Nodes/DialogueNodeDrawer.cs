@@ -12,14 +12,17 @@ namespace AR_DialogueEditor
     {
         private DialogueNode _dialogueNode;
 
+        
         private bool _showNodeSettings = true;
-        private bool _showDialogueSettings = true;
-
         private string _newDialogueOption = "";
         private string _newDialogueOptionOutput = "";
         private int _currentTab = 0;
-
         private int _portToDelete = 0;
+        
+        private bool _showDialogueSettings = true;
+        
+        private bool _showDialogueOptions = true;
+        
         public override void OnBodyGUI()
         {
             if(_dialogueNode == null)
@@ -28,6 +31,8 @@ namespace AR_DialogueEditor
 
             NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("InputPort"));
             
+            
+            //Node Settings Part
             _showNodeSettings = EditorGUILayout.BeginFoldoutHeaderGroup(_showNodeSettings, "Node Settings");
             if (_showNodeSettings)
             {
@@ -36,6 +41,7 @@ namespace AR_DialogueEditor
 
                 switch (_currentTab)
                 {
+                    //Add new Dialogue Option
                     case 0:
                         EditorGUILayout.PrefixLabel("Dialogue");
                         _newDialogueOption = EditorGUILayout.TextField(_newDialogueOption);
@@ -63,6 +69,7 @@ namespace AR_DialogueEditor
                             _dialogueNode.DialogueOptions.Add(new DialogueOption(_newDialogueOption, _newDialogueOptionOutput));
                         }
                         break;
+                    //Delete Dialogue Option
                     case 1:
                         if (_dialogueNode.DialogueOptions.Count == 0)
                         {
@@ -113,10 +120,26 @@ namespace AR_DialogueEditor
                
                 
                 NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("Speech"));
+                
+                
+               
             }
             
             EditorGUILayout.EndFoldoutHeaderGroup();
             
+            _showDialogueOptions = EditorGUILayout.BeginFoldoutHeaderGroup(_showDialogueOptions, "Dialogue Options");
+            if (_showDialogueOptions)
+            {
+                foreach (var dialogueOption in _dialogueNode.DialogueOptions)
+                {
+                    EditorGUILayout.PrefixLabel(dialogueOption.Dialogue);
+                    dialogueOption.Dialogue = EditorGUILayout.TextField(dialogueOption.Dialogue);
+                    EditorGUILayout.TextField("Output Port: ",dialogueOption.Option);
+                    EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+                }
+            }
+            EditorGUILayout.EndFoldoutHeaderGroup();
+
 
             foreach (NodePort port in _dialogueNode.DynamicOutputs)
             {

@@ -136,6 +136,8 @@ MonoBehaviour:
     keys:
     - InputPort
     - OutputPort
+    - 3
+    - 4
     values:
     - _fieldName: InputPort
       _node: {fileID: 9221861136701007489}
@@ -161,6 +163,24 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+    - _fieldName: 3
+      _node: {fileID: 9221861136701007489}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: 4
+      _node: {fileID: 9221861136701007489}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
   InputPort:
     _fieldName: 
     _node: {fileID: 0}
@@ -182,4 +202,8 @@ MonoBehaviour:
     _connectionType: 0
     _typeConstraint: 0
     _dynamic: 0
-  DialogueOptions: []
+  DialogueOptions:
+  - Dialogue: Pietro ciao
+    Option: 3
+  - Dialogue: Pietro
+    Option: 4

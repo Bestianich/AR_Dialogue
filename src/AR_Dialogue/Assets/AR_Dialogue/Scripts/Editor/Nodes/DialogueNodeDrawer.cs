@@ -29,7 +29,7 @@ namespace AR_DialogueEditor
                 _dialogueNode = target as DialogueNode;
             serializedObject.Update();
 
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("InputPort"));
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("defaultInput"));
             
             
             //Node Settings Part
@@ -108,7 +108,8 @@ namespace AR_DialogueEditor
 
                 prevWidth = EditorGUIUtility.labelWidth;
                 EditorGUIUtility.labelWidth = 150;
-                _dialogueNode.CharacterSprite = (Sprite)EditorGUILayout.ObjectField("Character Sprite", _dialogueNode.CharacterSprite, typeof(Sprite), false);
+                _dialogueNode.CharacterSprite = (Sprite)EditorGUILayout.ObjectField("Character Sprite",
+                    _dialogueNode.CharacterSprite, typeof(Sprite), false);
                 EditorGUIUtility.labelWidth = prevWidth;
                 
                 
@@ -141,6 +142,13 @@ namespace AR_DialogueEditor
             EditorGUILayout.EndFoldoutHeaderGroup();
 
 
+            // Check if there are not any DialogueOptions, if true then I draw the defaultOutput of the DialogueNode
+            if (!_dialogueNode.DynamicOutputs.Any())
+            {
+                NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("defaultOutput"));
+                return;
+            }
+            
             foreach (NodePort port in _dialogueNode.DynamicOutputs)
             {
                 NodeEditorGUILayout.PortField(port);

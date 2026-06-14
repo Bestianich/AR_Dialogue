@@ -16,29 +16,21 @@ MonoBehaviour:
   position: {x: -712, y: -264}
   ports:
     keys:
-    - OutputPort
+    - defaultOutput
     values:
-    - _fieldName: OutputPort
+    - _fieldName: defaultOutput
       _node: {fileID: -3689128601224066121}
-      _typeQualifiedName: XNode.NodePort, XNode, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: InputPort
+      - fieldName: defaultInput
         node: {fileID: 9221861136701007489}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  OutputPort:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
+  defaultOutput: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,55 +61,39 @@ MonoBehaviour:
   m_Name: Dialogue
   m_EditorClassIdentifier: AR_Dialogue::DialogueNode
   graph: {fileID: 11400000}
-  position: {x: 168, y: -216}
+  position: {x: 280, y: -200}
   ports:
     keys:
-    - InputPort
-    - OutputPort
+    - defaultOutput
+    - defaultInput
     values:
-    - _fieldName: InputPort
+    - _fieldName: defaultOutput
       _node: {fileID: 735275922006588553}
-      _typeQualifiedName: XNode.NodePort, XNode, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: defaultInput
+      _node: {fileID: 735275922006588553}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: OutputPort
+      - fieldName: prova
         node: {fileID: 9221861136701007489}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: OutputPort
-      _node: {fileID: 735275922006588553}
-      _typeQualifiedName: XNode.NodePort, XNode, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  InputPort:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
+  defaultInput: 0
   CharacterSprite: {fileID: 0}
   CharacterName: 
   Speech: Miao
-  OutputPort:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
   DialogueOptions: []
+  defaultOutput: 0
 --- !u!114 &9221861136701007489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,76 +110,48 @@ MonoBehaviour:
   position: {x: -280, y: -232}
   ports:
     keys:
-    - InputPort
-    - OutputPort
-    - 3
-    - 4
+    - defaultOutput
+    - defaultInput
+    - prova
     values:
-    - _fieldName: InputPort
+    - _fieldName: defaultOutput
       _node: {fileID: 9221861136701007489}
-      _typeQualifiedName: XNode.NodePort, XNode, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: defaultInput
+      _node: {fileID: 9221861136701007489}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: OutputPort
+      - fieldName: defaultOutput
         node: {fileID: -3689128601224066121}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: OutputPort
+    - _fieldName: prova
       _node: {fileID: 9221861136701007489}
-      _typeQualifiedName: XNode.NodePort, XNode, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: InputPort
+      - fieldName: defaultInput
         node: {fileID: 735275922006588553}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: 3
-      _node: {fileID: 9221861136701007489}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
       _dynamic: 1
-    - _fieldName: 4
-      _node: {fileID: 9221861136701007489}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-  InputPort:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  CharacterSprite: {fileID: 0}
+  defaultInput: 0
+  CharacterSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   CharacterName: 
-  Speech: Cacca Pupu
-  OutputPort:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
+  Speech: Provaaaaa
   DialogueOptions:
-  - Dialogue: Pietro ciao
-    Option: 3
-  - Dialogue: Pietro
-    Option: 4
+  - Dialogue: prova
+    Option: prova
+  defaultOutput: 0

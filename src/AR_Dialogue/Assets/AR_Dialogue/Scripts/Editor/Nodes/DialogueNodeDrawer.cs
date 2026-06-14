@@ -95,6 +95,8 @@ namespace AR_DialogueEditor
                 }
                 
             }
+            
+            //Dialouge Settings Part
             EditorGUILayout.EndFoldoutHeaderGroup();
             
             _showDialogueSettings = EditorGUILayout.BeginFoldoutHeaderGroup(_showDialogueSettings, "Dialogue Settings");
@@ -129,7 +131,7 @@ namespace AR_DialogueEditor
             EditorGUILayout.EndFoldoutHeaderGroup();
             
             
-            // Check if there are not any DialogueOptions, if true then I draw the defaultOutput of the DialogueNode
+            // Check if there are any DialogueOptions, if is false then I draw the defaultOutput of the DialogueNode
             if (!_dialogueNode.DynamicOutputs.Any())
             {
                 NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("defaultOutput"));
@@ -148,10 +150,8 @@ namespace AR_DialogueEditor
                 }
             }
             EditorGUILayout.EndFoldoutHeaderGroup();
-
-
             
-            
+            //Draws the Ports
             foreach (NodePort port in _dialogueNode.DynamicOutputs)
             {
                 NodeEditorGUILayout.PortField(port);

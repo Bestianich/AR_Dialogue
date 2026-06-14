@@ -15,7 +15,7 @@ public class NodeParser : MonoBehaviour
         {
             if (_currentNode == null)
                 _currentNode = _graph.StartNode;
-            NextNode("OutputPort");
+            NextNode("defaultOutput");
         }
         
         [ContextMenu("Parse")]
@@ -39,27 +39,40 @@ public class NodeParser : MonoBehaviour
                     _textField.text = (string)_currentNode.Execute();
                 }
             }
-            NextNode("OutputPort");
+            NextNode("prova");
         }
 
         public void NextNode(string outPortField)
         {
-            //Check if exist OutPort
-            if(!_currentNode.HasPort(outPortField))
+            NodePort nodePort = null;
+            
+            
+            //First I check the dynamicOutputPorts
+            foreach (var dynamicPort in _currentNode.DynamicOutputs)
             {
-                Debug.LogError(outPortField + " is not a valid port");
+                if (dynamicPort.fieldName == outPortField)
+                {
+                    nodePort = dynamicPort;
+                }
+            }
+
+            //If there are not any then i check the default outputPort
+            if (nodePort == null)
+                nodePort = _currentNode.GetPort("defaultOutput");
+
+            if (nodePort == null)
+            {
+                Debug.LogError($"Port {outPortField} not found");
                 return;
             }
             
-            var port =  _currentNode.GetPort(outPortField);
-
-            if (!port.IsConnected)
+            if (!nodePort.IsConnected)
             {
                 Debug.LogWarning("Outport port is not connected to anything. Is the dialogue graph ended?");
                 return;
             }
             
-            _currentNode = port.Connection.node as ANode;
+            _currentNode = nodePort.Connection.node as ANode;
             
         }
 }

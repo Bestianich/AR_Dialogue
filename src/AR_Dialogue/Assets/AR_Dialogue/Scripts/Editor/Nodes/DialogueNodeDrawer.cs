@@ -145,7 +145,7 @@ namespace AR_DialogueEditor
                 {
                     EditorGUILayout.PrefixLabel(dialogueOption.Dialogue);
                     dialogueOption.Dialogue = EditorGUILayout.TextField(dialogueOption.Dialogue);
-                    EditorGUILayout.TextField("Output Port: ",dialogueOption.Option);
+                    EditorGUILayout.TextField("Output Port: ",dialogueOption.PortName);
                     EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
                 }
             }

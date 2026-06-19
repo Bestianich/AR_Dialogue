@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AR_Dialogue.Scripts.Runtime;
 using UnityEngine;
 using XNode;
 
@@ -9,7 +10,7 @@ public class DialogueGraph : NodeGraph
 {
     public StartNode StartNode;
 
-
+    public DialogueMemory DialogueMemory;
     //Check to set the StartNode of the DialogueGraph
     public override Node AddNode(Type type)
     {

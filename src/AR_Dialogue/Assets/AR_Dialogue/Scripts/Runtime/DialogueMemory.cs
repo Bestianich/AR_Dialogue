@@ -8,6 +8,8 @@ namespace AR_Dialogue.Scripts.Runtime
     [Serializable]
     public class DialogueMemory
     {
+        public DataType DataType;
+        public MemoryData memoryData = new MemoryData();
         public List<MemoryData> MemoryDatas = new List<MemoryData>();
         public object Get(string name)
         {
@@ -48,6 +50,32 @@ namespace AR_Dialogue.Scripts.Runtime
     public class MemoryData
     {
         public string Name;
+        public DataType DataType;
+        [SerializeReference]
         public object Value;
+
+        public MemoryData()
+        {
+            Name = "new Data";
+            DataType = DataType.INT;
+            Value = 0;
+        }
+
+        public MemoryData(string name, DataType dataType, object value)
+        {
+            Name = name;
+            DataType = dataType;
+            Value = value;
+        }
+    }
+
+    public enum DataType
+    {
+        INT,
+        FLOAT,
+        STRING,
+        BOOLEAN,
+        GAMEOBJECT,
+        SPRITE
     }
 }

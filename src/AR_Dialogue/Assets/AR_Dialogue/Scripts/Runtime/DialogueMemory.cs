@@ -8,9 +8,8 @@ namespace AR_Dialogue.Scripts.Runtime
     [Serializable]
     public class DialogueMemory
     {
-        public DataType DataType;
         public MemoryData memoryData = new MemoryData();
-        public List<MemoryData> MemoryDatas = new List<MemoryData>();
+        public List<MemoryData> MemoryDatas = new List<MemoryData> { new MemoryData() };
         public object Get(string name)
         {
             foreach (var data in MemoryDatas)

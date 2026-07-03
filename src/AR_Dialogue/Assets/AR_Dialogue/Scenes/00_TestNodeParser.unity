@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581968718}
   - component: {fileID: 581968717}
+  - component: {fileID: 581968719}
   m_Layer: 0
   m_Name: NodeParser
   m_TagString: Untagged
@@ -166,6 +167,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &581968719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581968716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6603458d33a4db58b7b48b08dc94efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AR_Dialogue::AR_Dialogue.Scripts.Runtime.Actor
+  DialogueMemory:
+    memoryData:
+      Name: new Data
+      DataType: 0
+      Value:
+        rid: 3738613400078647383
+    MemoryDatas:
+    - Name: new Data
+      DataType: 0
+      Value:
+        rid: 3738613400078647384
+    - Name: new Data
+      DataType: 2
+      Value:
+        rid: 3738613400078647393
+    - Name: new Data
+      DataType: 4
+      Value:
+        rid: 3738613400078647395
+    - Name: new Data
+      DataType: 5
+      Value:
+        rid: 3738613400078647387
+  references:
+    version: 2
+    RefIds:
+    - rid: 3738613400078647383
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613400078647384
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613400078647387
+      type: {class: ObjectWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
+      data:
+        Target: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - rid: 3738613400078647393
+      type: {class: String, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613400078647395
+      type: {class: ObjectWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
+      data:
+        Target: {fileID: 1751762869}
 --- !u!1 &1178243436
 GameObject:
   m_ObjectHideFlags: 0

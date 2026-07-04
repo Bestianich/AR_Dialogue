@@ -29,12 +29,15 @@ namespace AR_DialogueEditor
             float valueWidth = position.width - nameWidth - typeWidth - _padding;
 
             Rect nameRect = new Rect(position.x, position.y, nameWidth, EditorGUIUtility.singleLineHeight);
-            Rect typeRect = new Rect(nameRect.x + nameWidth, position.y, typeWidth, EditorGUIUtility.singleLineHeight);
-            Rect valueRect = new Rect(typeRect.x + typeWidth, position.y, valueWidth, EditorGUIUtility.singleLineHeight);
+            Rect typeRect = new Rect(nameRect.x + nameWidth + _padding, position.y, typeWidth, EditorGUIUtility.singleLineHeight);
+            Rect valueRect = new Rect(typeRect.x + typeWidth + _padding, position.y, valueWidth, EditorGUIUtility.singleLineHeight);
             
             SerializedProperty name = property.FindPropertyRelative("Name");
             SerializedProperty type = property.FindPropertyRelative("DataType");
             _value = property.FindPropertyRelative("Value");
+            
+            
+            
             name.stringValue = EditorGUI.TextField(nameRect, name.stringValue);
             
             //Check for when I change the type of the memory data
@@ -49,18 +52,11 @@ namespace AR_DialogueEditor
                     _currentDataType = (DataType)type.enumValueIndex;
                     type.serializedObject.ApplyModifiedProperties();
                     type.serializedObject.Update();
-                    ResetValue(_currentDataType);
+                    ResetValue(_currentDataType , property);
                 }
             }
             
-            
-            
-
             DataType dataType = (DataType)type.enumValueIndex;
-            // if (_value == null)
-            // {
-            //     ResetValue(_currentDataType);
-            // }
             
             bool changed = false;
             switch (dataType)
@@ -71,12 +67,10 @@ namespace AR_DialogueEditor
                     int newInt = EditorGUI.IntField(valueRect , intValue);
                     if(EditorGUI.EndChangeCheck())
                     {   
-                        if (newInt != intValue)
-                        {
-                            property.FindPropertyRelative("Value").managedReferenceValue = newInt;
-                            _value = property.FindPropertyRelative("Value");
-                            changed = true;
-                        }
+                        property.FindPropertyRelative("Value").managedReferenceValue = newInt;
+                        property.FindPropertyRelative("Value").serializedObject.ApplyModifiedProperties();
+                        Debug.Log(property.FindPropertyRelative("Value").managedReferenceValue);
+                        changed = true;
                     }
                     
                     break;
@@ -97,46 +91,31 @@ namespace AR_DialogueEditor
                     break;
                 case DataType.STRING:
                     EditorGUI.BeginChangeCheck();
-                    PrimitiveWrapper currentString = _value.managedReferenceValue as PrimitiveWrapper;
-                    if (currentString == null)
-                        currentString = new PrimitiveWrapper();
+                    string currentString = property.FindPropertyRelative("Value").managedReferenceValue as string;
                     
-                    string newString = EditorGUI.TextField(valueRect, currentString.Target as string);
-                    Debug.Log(currentString.Target as string);
+                    string newString = EditorGUI.TextField(valueRect, currentString);
                     //Debug.Log(((PrimitiveWrapper)_value.managedReferenceValue));
                     
                     if (EditorGUI.EndChangeCheck())
                     {
+                        _value.managedReferenceValue = newString;
+                        _value.serializedObject.ApplyModifiedProperties();
+                        _value = property.FindPropertyRelative("Value");
+                        changed = true;
                         
-                        if (newString != currentString.Target as string)
-                            
-                        {
-                            _value.managedReferenceValue = new PrimitiveWrapper(newString);
-                             _value.serializedObject.ApplyModifiedProperties();
-                            _value.serializedObject.Update();
-                            _value = property.FindPropertyRelative("Value");
-                            changed = true;
-                        }
                     }
 
                     break;
                 case DataType.BOOLEAN:
                     EditorGUI.BeginChangeCheck();
-                    PrimitiveWrapper currentBool = _value.managedReferenceValue as PrimitiveWrapper;
-                    if (currentBool == null)
-                        currentBool = new PrimitiveWrapper(false);
-                    bool newBool = EditorGUI.Toggle(valueRect, (bool)currentBool.Target);
+                    bool currentBool = (bool)_value.managedReferenceValue; 
+                    bool newBool = EditorGUI.Toggle(valueRect, currentBool);
                     if (EditorGUI.EndChangeCheck())
                     {
-                        if (newBool != (bool)currentBool.Target)
-                        {
-                            _value.managedReferenceValue = new PrimitiveWrapper(newBool);
-                            _value.serializedObject.ApplyModifiedProperties();
-                            _value.serializedObject.Update();
-                            _value = property.FindPropertyRelative("Value");
-                            changed = true;
-                            
-                        }
+                        _value.managedReferenceValue = newBool;
+                        _value.serializedObject.ApplyModifiedProperties();
+                        _value = property.FindPropertyRelative("Value");
+                        changed = true;
                     }
                     break;
                 case DataType.GAMEOBJECT:
@@ -204,7 +183,9 @@ namespace AR_DialogueEditor
                 default:
                     break;
             }
+            
 
+            
             if (changed)
             {
                 property.serializedObject.ApplyModifiedProperties();
@@ -215,10 +196,8 @@ namespace AR_DialogueEditor
             
             
         }
-        private void ResetValue(DataType dataType)
+        private void ResetValue(DataType dataType , SerializedProperty property)
         {
-            Debug.Log("Resetting Value");
-            _value.managedReferenceValue = null;
             switch (dataType)
             {
                 case DataType.INT:
@@ -243,6 +222,8 @@ namespace AR_DialogueEditor
                     break;
             }
             _value.serializedObject.ApplyModifiedProperties();
+            property.serializedObject.ApplyModifiedProperties();
+            property.serializedObject.Update();
         }
     }
 }

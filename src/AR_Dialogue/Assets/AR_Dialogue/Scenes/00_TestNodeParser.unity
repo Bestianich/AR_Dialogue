@@ -721,21 +721,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3934267604201916768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837866285355828856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f38f995b2854582b27d7958c476b5ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AR_Dialogue::NodeParser
-  _graph: {fileID: 11400000, guid: 43c23153140c1664e9f6987f2709b90e, type: 2}
-  _textField: {fileID: 1178243438}
-  _currentNode: {fileID: 0}
 --- !u!1 &4837866285355828856
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +730,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2810111292320055564}
-  - component: {fileID: 3934267604201916768}
   - component: {fileID: 4837866285355828857}
   m_Layer: 0
   m_Name: NodeParser
@@ -766,79 +750,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6603458d33a4db58b7b48b08dc94efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: AR_Dialogue::AR_Dialogue.Scripts.Runtime.Actor
-  _dialogueGraph: {fileID: 11400000, guid: e03be520cd154bf4bbcc67e229468f29, type: 2}
+  _dialogueGraph: {fileID: 0}
   _currentNode: {fileID: 0}
   _dialogueMemory:
     memoryData:
       Name: new Data#1
       DataType: 0
       Value:
-        rid: 3738613413524275349
+        rid: 3738613418135912590
     MemoryDatas:
     - Name: new Data#1
       DataType: 0
       Value:
-        rid: 3738613413524275350
-    - Name: dsa
+        rid: 3738613418135912604
+    - Name: newData#2
       DataType: 2
       Value:
-        rid: 3738613413524275386
-    - Name: newData#3
+        rid: 3738613418135912596
+    - Name: 321435
       DataType: 2
       Value:
-        rid: 3738613413524275386
+        rid: 3738613418135912598
     - Name: newData#4
-      DataType: 2
-      Value:
-        rid: 3738613413524275392
-    - Name: newData#5
-      DataType: 3
-      Value:
-        rid: 3738613414028640316
-    - Name: newData#6
       DataType: 4
       Value:
-        rid: -2
-    - Name: newData#7
+        rid: 3738613418135912605
+    - Name: newData#5
       DataType: 5
       Value:
-        rid: 3738613414028640322
+        rid: 3738613418135912606
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 3738613413524275349
+    - rid: 3738613418135912590
       type: {class: Int32, ns: System, asm: mscorlib}
       data: 
-    - rid: 3738613413524275350
+    - rid: 3738613418135912596
+      type: {class: String, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613418135912598
+      type: {class: String, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613418135912604
       type: {class: Int32, ns: System, asm: mscorlib}
       data: 
-    - rid: 3738613413524275386
-      type: {class: PrimitiveWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
+    - rid: 3738613418135912605
+      type: {class: ObjectWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
       data:
-        Target:
-          rid: 3738613413524275387
-    - rid: 3738613413524275387
-      type: {class: String, ns: System, asm: mscorlib}
-      data: 
-    - rid: 3738613413524275392
-      type: {class: PrimitiveWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
-      data:
-        Target:
-          rid: 3738613413524275393
-    - rid: 3738613413524275393
-      type: {class: String, ns: System, asm: mscorlib}
-      data: 
-    - rid: 3738613414028640316
-      type: {class: PrimitiveWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
-      data:
-        Target:
-          rid: 3738613414028640317
-    - rid: 3738613414028640317
-      type: {class: Boolean, ns: System, asm: mscorlib}
-      data: 
-    - rid: 3738613414028640322
+        Target: {fileID: 4837866285355828856}
+    - rid: 3738613418135912606
       type: {class: ObjectWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
       data:
         Target: {fileID: 1178243438}

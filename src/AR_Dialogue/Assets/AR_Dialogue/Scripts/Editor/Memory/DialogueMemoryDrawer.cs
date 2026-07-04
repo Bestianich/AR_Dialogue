@@ -34,14 +34,15 @@ namespace AR_DialogueEditor
             EditorGUI.LabelField(headerRect, "DIALOGUE DATA", _centeredStyle);
             
             
+            
             float nameWidth = position.width * 0.3f;
             float typeWidth = position.width * 0.3f;
             float valueWidth = position.width - nameWidth - typeWidth - _padding;
             
             
-            Rect nameRect = new Rect(position.x, headerRect.y + _itemHeight, nameWidth, 10);
-            Rect typeRect = new Rect(position.x + nameWidth, headerRect.y + _itemHeight, typeWidth, 10);
-            Rect valueRect = new Rect(position.x + (nameWidth + typeWidth) + _padding, headerRect.y + _itemHeight, valueWidth, 10);
+            Rect nameRect = new Rect(position.x + _padding, headerRect.y + _itemHeight, nameWidth, 10);
+            Rect typeRect = new Rect(position.x + nameWidth + _padding, headerRect.y + _itemHeight, typeWidth, 10);
+            Rect valueRect = new Rect(position.x + (typeWidth +  nameWidth) + _padding, headerRect.y + _itemHeight, valueWidth, 10);
             
             EditorGUI.LabelField(nameRect, "NAME", EditorStyles.boldLabel);
             EditorGUI.LabelField(typeRect, "TYPE", EditorStyles.boldLabel);
@@ -49,14 +50,24 @@ namespace AR_DialogueEditor
             
             SerializedProperty memoryDatas = property.FindPropertyRelative("MemoryDatas");
             _memoryDataCount = memoryDatas.arraySize;
+            int indexToDelete = -1;
             
             for (int i = 0; i < _memoryDataCount; i++)
             {
                 SerializedProperty memoryData = memoryDatas.GetArrayElementAtIndex(i);
-                Rect memoryRect = new Rect(position.x , position.y + nameRect.y + _itemHeight * (i+1), position.width, 100);  
+                Rect memoryRect = new Rect(position.x , position.y + nameRect.y + _itemHeight * (i+1), position.width * 0.9f, 100);  
                 EditorGUI.PropertyField(memoryRect, memoryData , GUIContent.none);
+                Rect removeButton = new Rect(position.x + memoryRect.width + _padding * 2, memoryRect.y, 15, 15);
+                if (GUI.Button(removeButton, "X"))
+                {
+                    indexToDelete = i;
+                }
             }
-            
+
+            if (indexToDelete != -1)
+            {
+                memoryDatas.DeleteArrayElementAtIndex(indexToDelete);
+            }
             
             Rect addButtonRect = new Rect(position.x , headerRect.y + _itemHeight * (_memoryDataCount+1) + 50, position.width * 0.5f, 30);
             Rect removeButtonRect = new Rect(position.x + addButtonRect.width , addButtonRect.y, position.width * 0.5f, 30);

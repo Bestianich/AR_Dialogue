@@ -55,7 +55,7 @@ namespace AR_Dialogue.Scripts.Runtime
 
         public MemoryData()
         {
-            Name = "new Data";
+            Name = "new Data#1";
             DataType = DataType.INT;
             Value = 0;
         }
@@ -75,6 +75,7 @@ namespace AR_Dialogue.Scripts.Runtime
         STRING,
         BOOLEAN,
         GAMEOBJECT,
+        TEXTMESHPRO,
         SPRITE
     }
 }

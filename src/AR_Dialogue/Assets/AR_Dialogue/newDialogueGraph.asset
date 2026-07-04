@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6eeed0b72dde941af044d945c0979b, type: 3}
+  m_Name: newDialogueGraph
+  m_EditorClassIdentifier: AR_Dialogue::DialogueGraph
+  nodes:
+  - {fileID: 8933170234350147185}
+  - {fileID: 1600142554920547868}
+  StartNode: {fileID: 1600142554920547868}
+  DialogueMemory:
+    memoryData:
+      Name: new Data
+      DataType: 0
+      Value:
+        rid: 3738613400078647380
+    MemoryDatas: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 3738613400078647380
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+--- !u!114 &1600142554920547868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fa7c05f857448490c3cd9ead9b027a, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: AR_Dialogue::StartNode
+  graph: {fileID: 11400000}
+  position: {x: -1272, y: -360}
+  ports:
+    keys:
+    - defaultOutput
+    values:
+    - _fieldName: defaultOutput
+      _node: {fileID: 1600142554920547868}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: defaultInput
+        node: {fileID: 8933170234350147185}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  defaultOutput: 0
+--- !u!114 &8933170234350147185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: -376, y: -120}
+  ports:
+    keys:
+    - defaultInput
+    - defaultOutput
+    values:
+    - _fieldName: defaultInput
+      _node: {fileID: 8933170234350147185}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: defaultOutput
+        node: {fileID: 1600142554920547868}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: defaultOutput
+      _node: {fileID: 8933170234350147185}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  defaultInput: 0
+  CharacterSprite: {fileID: 0}
+  CharacterName: 
+  Speech: ereqasdas
+  DialogueOptions: []
+  defaultOutput: 0

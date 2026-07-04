@@ -119,109 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &581968716
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 581968718}
-  - component: {fileID: 581968717}
-  - component: {fileID: 581968719}
-  m_Layer: 0
-  m_Name: NodeParser
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &581968717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581968716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f38f995b2854582b27d7958c476b5ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AR_Dialogue::NodeParser
-  _graph: {fileID: 11400000, guid: 43c23153140c1664e9f6987f2709b90e, type: 2}
-  _textField: {fileID: 1178243438}
-  _currentNode: {fileID: 0}
---- !u!4 &581968718
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581968716}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &581968719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581968716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6603458d33a4db58b7b48b08dc94efa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AR_Dialogue::AR_Dialogue.Scripts.Runtime.Actor
-  DialogueMemory:
-    memoryData:
-      Name: new Data
-      DataType: 0
-      Value:
-        rid: 3738613400078647383
-    MemoryDatas:
-    - Name: new Data
-      DataType: 0
-      Value:
-        rid: 3738613400078647384
-    - Name: new Data
-      DataType: 2
-      Value:
-        rid: 3738613400078647393
-    - Name: new Data
-      DataType: 4
-      Value:
-        rid: 3738613400078647395
-    - Name: new Data
-      DataType: 5
-      Value:
-        rid: 3738613400078647387
-  references:
-    version: 2
-    RefIds:
-    - rid: 3738613400078647383
-      type: {class: Int32, ns: System, asm: mscorlib}
-      data: 
-    - rid: 3738613400078647384
-      type: {class: Int32, ns: System, asm: mscorlib}
-      data: 
-    - rid: 3738613400078647387
-      type: {class: ObjectWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
-      data:
-        Target: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    - rid: 3738613400078647393
-      type: {class: String, ns: System, asm: mscorlib}
-      data: 
-    - rid: 3738613400078647395
-      type: {class: ObjectWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
-      data:
-        Target: {fileID: 1751762869}
 --- !u!1 &1178243436
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +130,7 @@ GameObject:
   - component: {fileID: 1178243437}
   - component: {fileID: 1178243439}
   - component: {fileID: 1178243438}
+  - component: {fileID: 1178243440}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -359,6 +257,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178243436}
   m_CullTransparentMesh: 1
+--- !u!23 &1178243440
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178243436}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1489104080
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,12 +706,148 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2810111292320055564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837866285355828856}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3934267604201916768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837866285355828856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f38f995b2854582b27d7958c476b5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AR_Dialogue::NodeParser
+  _graph: {fileID: 11400000, guid: 43c23153140c1664e9f6987f2709b90e, type: 2}
+  _textField: {fileID: 1178243438}
+  _currentNode: {fileID: 0}
+--- !u!1 &4837866285355828856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2810111292320055564}
+  - component: {fileID: 3934267604201916768}
+  - component: {fileID: 4837866285355828857}
+  m_Layer: 0
+  m_Name: NodeParser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &4837866285355828857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837866285355828856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6603458d33a4db58b7b48b08dc94efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AR_Dialogue::AR_Dialogue.Scripts.Runtime.Actor
+  _dialogueGraph: {fileID: 11400000, guid: e03be520cd154bf4bbcc67e229468f29, type: 2}
+  _currentNode: {fileID: 0}
+  _dialogueMemory:
+    memoryData:
+      Name: new Data#1
+      DataType: 0
+      Value:
+        rid: 3738613413524275349
+    MemoryDatas:
+    - Name: new Data#1
+      DataType: 0
+      Value:
+        rid: 3738613413524275350
+    - Name: dsa
+      DataType: 2
+      Value:
+        rid: 3738613413524275386
+    - Name: newData#3
+      DataType: 2
+      Value:
+        rid: 3738613413524275386
+    - Name: newData#4
+      DataType: 2
+      Value:
+        rid: 3738613413524275392
+    - Name: newData#5
+      DataType: 3
+      Value:
+        rid: 3738613414028640316
+    - Name: newData#6
+      DataType: 4
+      Value:
+        rid: -2
+    - Name: newData#7
+      DataType: 5
+      Value:
+        rid: 3738613414028640322
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 3738613413524275349
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613413524275350
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613413524275386
+      type: {class: PrimitiveWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
+      data:
+        Target:
+          rid: 3738613413524275387
+    - rid: 3738613413524275387
+      type: {class: String, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613413524275392
+      type: {class: PrimitiveWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
+      data:
+        Target:
+          rid: 3738613413524275393
+    - rid: 3738613413524275393
+      type: {class: String, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613414028640316
+      type: {class: PrimitiveWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
+      data:
+        Target:
+          rid: 3738613414028640317
+    - rid: 3738613414028640317
+      type: {class: Boolean, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613414028640322
+      type: {class: ObjectWrapper, ns: AR_Dialogue.Scripts.Runtime, asm: AR_Dialogue}
+      data:
+        Target: {fileID: 1178243438}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1751762872}
   - {fileID: 1489104082}
-  - {fileID: 581968718}
+  - {fileID: 2810111292320055564}
   - {fileID: 1583523244}
   - {fileID: 1605760047}

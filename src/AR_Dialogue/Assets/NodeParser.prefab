@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7285884434073832920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 54221177109924524}
+  - component: {fileID: 1199777200832086720}
+  - component: {fileID: 9113490685967625172}
+  m_Layer: 0
+  m_Name: NodeParser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &54221177109924524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7285884434073832920}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1199777200832086720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7285884434073832920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f38f995b2854582b27d7958c476b5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AR_Dialogue::NodeParser
+  _graph: {fileID: 11400000, guid: 43c23153140c1664e9f6987f2709b90e, type: 2}
+  _textField: {fileID: 0}
+  _currentNode: {fileID: 0}
+--- !u!114 &9113490685967625172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7285884434073832920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6603458d33a4db58b7b48b08dc94efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AR_Dialogue::AR_Dialogue.Scripts.Runtime.Actor
+  _dialogueGraph: {fileID: 0}
+  _dialogueMemory:
+    memoryData:
+      Name: new Data#1
+      DataType: 0
+      Value:
+        rid: 3738613413332123719
+    MemoryDatas:
+    - Name: new Data#1
+      DataType: 0
+      Value:
+        rid: 3738613413332123720
+    - Name: newData#2
+      DataType: 2
+      Value:
+        rid: 3738613413332123721
+    - Name: newData#3
+      DataType: 3
+      Value:
+        rid: 3738613413332123722
+  references:
+    version: 2
+    RefIds:
+    - rid: 3738613413332123719
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613413332123720
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613413332123721
+      type: {class: String, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613413332123722
+      type: {class: Boolean, ns: System, asm: mscorlib}
+      data: 

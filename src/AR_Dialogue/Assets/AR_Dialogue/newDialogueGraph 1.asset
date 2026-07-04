@@ -48,6 +48,47 @@ MonoBehaviour:
   - {fileID: 9221861136701007489}
   - {fileID: 735275922006588553}
   StartNode: {fileID: -3689128601224066121}
+  DialogueMemory:
+    memoryData:
+      Name: new Data
+      DataType: 2
+      Value:
+        rid: 3738613377202913911
+    MemoryDatas:
+    - Name: 
+      DataType: 0
+      Value:
+        rid: 3738613376910360577
+    - Name: 
+      DataType: 0
+      Value:
+        rid: 3738613376910360578
+    - Name: 
+      DataType: 0
+      Value:
+        rid: 3738613376910360579
+    - Name: 
+      DataType: 0
+      Value:
+        rid: 3738613376910360580
+  references:
+    version: 2
+    RefIds:
+    - rid: 3738613376910360577
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613376910360578
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613376910360579
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613376910360580
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613377202913911
+      type: {class: String, ns: System, asm: mscorlib}
+      data: 
 --- !u!114 &735275922006588553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +154,9 @@ MonoBehaviour:
     - defaultOutput
     - defaultInput
     - prova
+    - Prova 2
+    - Prova 3
+    - Prova 4
     values:
     - _fieldName: defaultOutput
       _node: {fileID: 9221861136701007489}
@@ -147,11 +191,44 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: Prova 2
+      _node: {fileID: 9221861136701007489}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: Prova 3
+      _node: {fileID: 9221861136701007489}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: Prova 4
+      _node: {fileID: 9221861136701007489}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
   defaultInput: 0
   CharacterSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  CharacterName: 
+  CharacterName: Pietro
   Speech: Provaaaaa
   DialogueOptions:
   - Dialogue: prova
-    Option: prova
+    PortName: prova
+  - Dialogue: Prova 2
+    PortName: Prova 2
+  - Dialogue: Prova 2
+    PortName: Prova 3
+  - Dialogue: Prova 2
+    PortName: Prova 4
   defaultOutput: 0

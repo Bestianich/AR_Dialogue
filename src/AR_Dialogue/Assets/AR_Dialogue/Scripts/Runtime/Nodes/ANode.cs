@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AR_Dialogue.Scripts.Runtime;
 using UnityEngine;
 using XNode;
 using Object = System.Object;
 
 public abstract class ANode : Node
 {
+	protected DialogueMemory _dialogueMemory;
 
 	// Use this for initialization
-	protected override void Init() {
-		base.Init();
-		
+	public virtual void Init(DialogueMemory dialogueMemory) {
+		_dialogueMemory = dialogueMemory;
 	}
 
 	//What the node does

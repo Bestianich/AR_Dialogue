@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 
 
 [Serializable]
-public class DialogueOption
+public class DialogueOption : ANode
 {
     public string Dialogue;
     public string PortName;
@@ -13,5 +13,10 @@ public class DialogueOption
     {
         Dialogue = dialogue;
         PortName = portName;
+    }
+
+    public override object Execute()
+    {
+        throw new NotImplementedException();
     }
 }

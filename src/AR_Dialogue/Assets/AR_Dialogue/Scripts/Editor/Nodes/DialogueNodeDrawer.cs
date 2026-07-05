@@ -121,6 +121,9 @@ namespace AR_DialogueEditor
                 // EditorGUIUtility.labelWidth = prevWidth;
                 
                
+                EditorGUIUtility.labelWidth = 150;
+                NodeEditorGUILayout.PropertyField( serializedObject.FindProperty("TextMeshReference"));
+                EditorGUIUtility.labelWidth = prevWidth;
                 
                 NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("Speech"));
                 

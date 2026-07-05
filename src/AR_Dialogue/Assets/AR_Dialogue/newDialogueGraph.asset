@@ -17,18 +17,10 @@ MonoBehaviour:
   - {fileID: 1600142554920547868}
   StartNode: {fileID: 1600142554920547868}
   DialogueMemory:
-    memoryData:
-      Name: new Data
-      DataType: 0
-      Value:
-        rid: 3738613400078647380
     MemoryDatas: []
   references:
     version: 2
-    RefIds:
-    - rid: 3738613400078647380
-      type: {class: Int32, ns: System, asm: mscorlib}
-      data: 
+    RefIds: []
 --- !u!114 &1600142554920547868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +95,7 @@ MonoBehaviour:
   defaultInput: 0
   CharacterSprite: {fileID: 0}
   CharacterName: 
+  TextMeshReference: textMesh
   Speech: ereqasdas
   DialogueOptions: []
   defaultOutput: 0

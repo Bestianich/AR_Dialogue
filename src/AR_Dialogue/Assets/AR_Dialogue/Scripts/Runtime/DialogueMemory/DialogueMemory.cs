@@ -8,13 +8,16 @@ namespace AR_Dialogue.Scripts.Runtime
     [Serializable]
     public class DialogueMemory
     {
-        public MemoryData memoryData = new MemoryData();
         public List<MemoryData> MemoryDatas = new List<MemoryData> { new MemoryData() };
         public object Get(string name)
         {
             foreach (var data in MemoryDatas)
             {
-                if(data.Name == name) return data.Value;
+                if (data.Name == name)
+                {
+                    if (data.Value is ObjectWrapper) return ConvertObjectWrapper(data.Value as ObjectWrapper);
+                    return data.Value;
+                }
             }
             Debug.LogError("Dialogue Memory not found: " + name);
             return null;
@@ -42,40 +45,13 @@ namespace AR_Dialogue.Scripts.Runtime
             }
             return false;
         }
-    }
 
-
-    [Serializable]
-    public class MemoryData
-    {
-        public string Name;
-        public DataType DataType;
-        [SerializeReference]
-        public object Value;
-
-        public MemoryData()
+        public UnityEngine.Object ConvertObjectWrapper(ObjectWrapper wrapper)
         {
-            Name = "new Data#1";
-            DataType = DataType.INT;
-            Value = 0;
-        }
-
-        public MemoryData(string name, DataType dataType, object value)
-        {
-            Name = name;
-            DataType = dataType;
-            Value = value;
+            return wrapper.Target;
         }
     }
 
-    public enum DataType
-    {
-        INT,
-        FLOAT,
-        STRING,
-        BOOLEAN,
-        GAMEOBJECT,
-        TEXTMESHPRO,
-        SPRITE
-    }
+
+    
 }

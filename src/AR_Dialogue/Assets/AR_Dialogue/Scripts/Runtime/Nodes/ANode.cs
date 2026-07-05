@@ -6,37 +6,39 @@ using UnityEngine;
 using XNode;
 using Object = System.Object;
 
-public abstract class ANode : Node
-{
-	protected DialogueMemory _dialogueMemory;
-
-	// Use this for initialization
-	public virtual void Init(DialogueMemory dialogueMemory) {
-		_dialogueMemory = dialogueMemory;
-	}
-
-	//What the node does
-	public abstract object Execute();
-
-	public virtual Type GetNodeType()
+	public abstract class ANode : Node
 	{
-		return GetType();
+		protected DialogueMemory _dialogueMemory;
+
+		// Use this for initialization
+		public virtual void Init(DialogueMemory dialogueMemory)
+		{
+			_dialogueMemory = dialogueMemory;
+		}
+
+		//What the node does
+		public abstract void Execute();
+
+		public virtual Type GetNodeType()
+		{
+			return GetType();
+		}
+
+		// Return the correct value of an output port when requested
+		public override object GetValue(NodePort port)
+		{
+			return port.node; // Replace this
+		}
+
 	}
-	
-	// Return the correct value of an output port when requested
-	public override object GetValue(NodePort port) {
-		return port.node; // Replace this
-	}
-
-}
 
 
-#region Attributes
+	#region Attributes
 
-	[AttributeUsage(AttributeTargets.Class , Inherited = false , AllowMultiple = false)]
+	[AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
 	public class HideInNodeEditorAttribute : Attribute
 	{
-		public bool HideInEditor { get;}
+		public bool HideInEditor { get; }
 
 		public HideInNodeEditorAttribute(bool hideInEditor)
 		{
@@ -44,14 +46,15 @@ public abstract class ANode : Node
 		}
 	}
 
-	[AttributeUsage(AttributeTargets.Method , Inherited = false , AllowMultiple = false)]
+	[AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = false)]
 	public class UsesTextFieldAttribute : Attribute
 	{
-		public string Text { get;}
+		public string Text { get; }
 
 		public UsesTextFieldAttribute(string text)
 		{
 			Text = text;
 		}
 	}
-#endregion
+
+	#endregion

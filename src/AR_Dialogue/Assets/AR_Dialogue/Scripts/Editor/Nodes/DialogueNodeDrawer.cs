@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AR_Dialogue;
 using UnityEditor;
 using UnityEngine;
 using XNode;
@@ -29,7 +30,7 @@ namespace AR_DialogueEditor
                 _dialogueNode = target as DialogueNode;
             serializedObject.Update();
 
-            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("defaultInput"));
+            NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DefaultInput"));
             
             
             //Node Settings Part
@@ -137,7 +138,7 @@ namespace AR_DialogueEditor
             // Check if there are any DialogueOptions, if is false then I draw the defaultOutput of the DialogueNode
             if (!_dialogueNode.DynamicOutputs.Any())
             {
-                NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("defaultOutput"));
+                NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("DefaultOutput"));
                 return;
             }
             

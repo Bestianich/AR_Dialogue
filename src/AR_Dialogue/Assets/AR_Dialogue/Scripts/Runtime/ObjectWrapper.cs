@@ -1,7 +1,5 @@
 using UnityEngine;
 
-namespace AR_Dialogue.Scripts.Runtime
-{
     [System.Serializable]
     public class ObjectWrapper
     {
@@ -17,4 +15,3 @@ namespace AR_Dialogue.Scripts.Runtime
             Target = target;
         }
     }
-}

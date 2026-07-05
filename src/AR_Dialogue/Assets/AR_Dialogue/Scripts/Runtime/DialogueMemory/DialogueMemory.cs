@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AR_Dialogue.Scripts.Runtime
-{
+
     
     [Serializable]
     public class DialogueMemory
@@ -54,4 +53,3 @@ namespace AR_Dialogue.Scripts.Runtime
 
 
     
-}

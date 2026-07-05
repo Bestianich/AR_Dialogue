@@ -1,16 +1,15 @@
 
-//[HideInNodeEditor(true)]
 
+using UnityEngine;
 using XNode;
 
 [DisallowMultipleNodes(1)]
 public class StartNode : ANode
 {
-    [Output] public int defaultOutput;
-    
-    public override object Execute()
+    [Output] public int DefaultOutput;
+    public override void Execute()
     {
-        return "Starting Node";
+        Debug.Log("NodeGraph Started");
     }
 
     

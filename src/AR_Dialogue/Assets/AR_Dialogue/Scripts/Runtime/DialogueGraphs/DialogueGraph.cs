@@ -5,12 +5,14 @@ using AR_Dialogue.Scripts.Runtime;
 using UnityEngine;
 using XNode;
 
+
 [CreateAssetMenu(fileName = "newDialogueGraph", menuName = "AR_Dialogue/New Dialogue Graph")]
 public class DialogueGraph : NodeGraph
 {
     public StartNode StartNode;
 
     public DialogueMemory DialogueMemory;
+
     //Check to set the StartNode of the DialogueGraph
     public override Node AddNode(Type type)
     {
@@ -19,7 +21,8 @@ public class DialogueGraph : NodeGraph
             StartNode = base.AddNode(type) as StartNode;
             return StartNode;
         }
+
         return base.AddNode(type);
     }
-    
+
 }

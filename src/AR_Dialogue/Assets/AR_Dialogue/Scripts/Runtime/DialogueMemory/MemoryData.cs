@@ -33,5 +33,6 @@ public enum DataType
     GAMEOBJECT,
     TEXTMESHPRO,
     SPRITE,
-    IMAGE
+    IMAGE,
+    RECT_TRANSFORM
     }

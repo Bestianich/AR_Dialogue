@@ -35,13 +35,18 @@ public class Actor : MonoBehaviour
             return;
         }
 
-        CurrentNode.Init(_dialogueMemory);
+        CurrentNode.Init(_dialogueMemory , this);
         CurrentNode.Execute();
-        NextNode("DefaultOutput");
+
+        var attribute = CurrentNode.GetType().GetCustomAttribute(typeof(HasDynamicPortsAttribute), false) as HasDynamicPortsAttribute;
+        Debug.Log(attribute);
+        if (attribute == null)
+            NextNode("DefaultOutput");
     }
 
     public void NextNode(string outPortField)
     {
+        CurrentNode.OnNextNode();
         NodePort nodePort = null;
 
 

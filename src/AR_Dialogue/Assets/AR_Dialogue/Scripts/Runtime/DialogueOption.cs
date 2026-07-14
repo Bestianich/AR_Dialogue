@@ -2,16 +2,15 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-
 [Serializable]
 public class DialogueOption
 {
-    public string Dialogue;
+    [FormerlySerializedAs("Dialogue")] public string Text;
     public string PortName;
 
-    public DialogueOption(string dialogue, string portName)
+    public DialogueOption(string text, string portName)
     {
-        Dialogue = dialogue;
+        Text = text;
         PortName = portName;
     }
     

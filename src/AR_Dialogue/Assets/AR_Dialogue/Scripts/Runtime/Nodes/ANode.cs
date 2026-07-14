@@ -9,15 +9,22 @@ using Object = System.Object;
 	public abstract class ANode : Node
 	{
 		protected DialogueMemory _dialogueMemory;
+		protected Actor _actor;
 
 		// Use this for initialization
-		public virtual void Init(DialogueMemory dialogueMemory)
+		public virtual void Init(DialogueMemory dialogueMemory , Actor actor)
 		{
 			_dialogueMemory = dialogueMemory;
+			_actor = actor;
 		}
 
 		//What the node does
 		public abstract void Execute();
+
+		public virtual void OnNextNode()
+		{
+			
+		}
 
 		public virtual Type GetNodeType()
 		{
@@ -54,6 +61,17 @@ using Object = System.Object;
 		public UsesTextFieldAttribute(string text)
 		{
 			Text = text;
+		}
+	}
+
+	[AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
+	public class HasDynamicPortsAttribute : Attribute
+	{
+		public bool HasDynamicPorts { get; }
+
+		public HasDynamicPortsAttribute(bool hasDynamicPorts)
+		{
+			HasDynamicPorts = hasDynamicPorts;
 		}
 	}
 

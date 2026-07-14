@@ -199,6 +199,22 @@ public class MemoryDataDrawer : PropertyDrawer
                 
 
                 break;
+            
+            case DataType.RECT_TRANSFORM:
+                EditorGUI.BeginChangeCheck();
+                ObjectWrapper currentTransform = _value.managedReferenceValue as ObjectWrapper;
+                if(currentTransform == null)
+                    currentTransform = new ObjectWrapper();
+                RectTransform newTransform = EditorGUI.ObjectField(valueRect, currentTransform.Target, typeof(RectTransform), true) as RectTransform;
+                if (EditorGUI.EndChangeCheck())
+                {
+                    _value.managedReferenceValue = new ObjectWrapper(newTransform);
+                    _value.serializedObject.ApplyModifiedProperties();
+                    _value.serializedObject.Update();
+                    _value = property.FindPropertyRelative("Value");
+                    changed = true;
+                }
+                break;
             default:
                 break;
         }

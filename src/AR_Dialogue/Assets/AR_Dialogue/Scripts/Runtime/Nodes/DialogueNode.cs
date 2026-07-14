@@ -21,12 +21,11 @@ public class DialogueNode : ANode
         TextMeshProUGUI textMesh = _dialogueMemory.Get(TextMeshReference) as TextMeshProUGUI;
         if (textMesh == null)
         {
-            Debug.LogWarning($"TextMesh {TextMeshReference} reference not found!!");
+            Debug.LogWarning($"TextMesh: {TextMeshReference} reference not found!!");
             return;
         }
 
         textMesh.text = Speech;
     }
-
-
+    
 }

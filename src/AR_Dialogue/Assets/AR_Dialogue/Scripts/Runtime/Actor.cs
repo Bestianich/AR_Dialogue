@@ -11,12 +11,12 @@ public class Actor : MonoBehaviour , ARInteractable
     public ANode CurrentNode;
     [SerializeField] private GameObject _mainCanvas;
     [SerializeField] private DialogueMemory _dialogueMemory;
-    private bool _waitForPlayerInput = false;
     
     private void Awake()
     {
         if (CurrentNode == null)
             CurrentNode =  Instantiate(_dialogueGraph.StartNode);
+        IsWaitingForInput = false;
         Parse();
         
     }
@@ -32,30 +32,27 @@ public class Actor : MonoBehaviour , ARInteractable
             return;
         }
         
-        var attribute = CurrentNode.GetType().GetCustomAttribute(typeof(HasDynamicPortsAttribute), false) as HasDynamicPortsAttribute;
-        
-        Debug.Log(CurrentNode + "  has been executed: " + CurrentNode.HasBeenExecuted);
-        if (CurrentNode.HasBeenExecuted && attribute is not { HasDynamicPorts: true })
-            NextNode("DefaultOutput");
-            
         
         CurrentNode.Init(_dialogueMemory , this);
         CurrentNode.Execute();
-
-        var waitForPlayerInputAttribute = CurrentNode.GetType().GetCustomAttribute(typeof(WaitForPlayerInputAttribute)) as WaitForPlayerInputAttribute;
-        if (waitForPlayerInputAttribute != null)
-            _waitForPlayerInput = waitForPlayerInputAttribute.WaitForPlayerInput;
         
-        if (attribute is not { HasDynamicPorts: true } &&  !_waitForPlayerInput)
-            NextNode("DefaultOutput");
+        var requireInput = CurrentNode.GetType().GetCustomAttribute(typeof(WaitForPlayerInputAttribute)) as WaitForPlayerInputAttribute;
+        if (requireInput is  { WaitForPlayerInput: true })
+        {
+            IsWaitingForInput = true;
+            return;
+        }
+        
+        NextNode("DefaultOutput");
+        
     }
+    
 
     public void NextNode(string outPortField)
     {
         CurrentNode.OnNextNode();
         NodePort nodePort = null;
-
-
+        
         //First I check the dynamicOutputPorts
         foreach (var dynamicPort in CurrentNode.DynamicOutputs)
         {
@@ -83,18 +80,15 @@ public class Actor : MonoBehaviour , ARInteractable
 
         CurrentNode = Instantiate(nodePort.Connection.node as ANode);
         
-        var waitForPlayerInputAttribute = CurrentNode.GetType().GetCustomAttribute(typeof(WaitForPlayerInputAttribute)) as WaitForPlayerInputAttribute;
-        if (waitForPlayerInputAttribute != null)
-            _waitForPlayerInput = waitForPlayerInputAttribute.WaitForPlayerInput;
-
-        if(!_waitForPlayerInput)
-            Parse();
-
+        //var requireInput = CurrentNode.GetType().GetCustomAttribute(typeof(WaitForPlayerInputAttribute)) as WaitForPlayerInputAttribute;
+        Parse();
+        
         
     }
 
     #region ARInteractable implementation
 
+    public bool IsWaitingForInput { get; set; }
     public bool IsBeignInteracted { get; set; }
 
     public void OnEnterInteraction()
@@ -102,14 +96,19 @@ public class Actor : MonoBehaviour , ARInteractable
         if(IsBeignInteracted) return;
         IsBeignInteracted = true;
         _mainCanvas.SetActive(true);
-        Interact();
     }
 
     public void Interact()
     {
         if(!IsBeignInteracted)
             return;
-        Parse();
+        if(!IsWaitingForInput) return;
+        IsWaitingForInput = false;
+        var checkDynamicPorts = CurrentNode.GetType().GetCustomAttribute(typeof(HasDynamicPortsAttribute)) as HasDynamicPortsAttribute;
+        if (checkDynamicPorts is {HasDynamicPorts: true})
+            return;
+        
+        NextNode("DefaultOutput");
     }
 
     public void OnExitInteraction()

@@ -1,5 +1,95 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7681729176156915629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6d162a336525e4e933aad986e78c98, type: 3}
+  m_Name: Exit Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::ExitDialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1944, y: 472}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: -7681729176156915629}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: 796393819685022319}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: -7681729176156915629}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 796393819685022319}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  DefaultOutput: 0
+--- !u!114 &-4979813197064588200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6d162a336525e4e933aad986e78c98, type: 3}
+  m_Name: Exit Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::ExitDialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1306.548, y: 280.77734}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: -4979813197064588200}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: 8736419640262174540}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: -4979813197064588200}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 796393819685022319}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  DefaultOutput: 0
 --- !u!114 &-4109246062824780807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +204,9 @@ MonoBehaviour:
   - {fileID: 8736419640262174540}
   - {fileID: 443526009857998277}
   - {fileID: 2656309069733195923}
+  - {fileID: -4979813197064588200}
+  - {fileID: 796393819685022319}
+  - {fileID: -7681729176156915629}
   StartNode: {fileID: 1600142554920547868}
   DialogueMemory:
     MemoryDatas: []
@@ -168,6 +261,59 @@ MonoBehaviour:
   CharacterName: 
   TextMeshReference: textMesh
   Speech: Direttamente da Alchemy road
+  DialogueOptions: []
+  DefaultOutput: 0
+--- !u!114 &796393819685022319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1576, y: 248}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 796393819685022319}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: -4979813197064588200}
+        reroutePoints: []
+      - fieldName: DefaultOutput
+        node: {fileID: -7681729176156915629}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 796393819685022319}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: -7681729176156915629}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  CharacterSprite: {fileID: 0}
+  CharacterName: 
+  TextMeshReference: textMesh
+  Speech: Falla finita
   DialogueOptions: []
   DefaultOutput: 0
 --- !u!114 &1600142554920547868
@@ -350,7 +496,10 @@ MonoBehaviour:
       _node: {fileID: 8736419640262174540}
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      connections: []
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: -4979813197064588200}
+        reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0

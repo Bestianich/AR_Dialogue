@@ -46,5 +46,6 @@ public class ChooseOptionNode : ANode
         {
             Destroy(rect.GetChild(i).gameObject);
         }
+        base.OnNextNode();
     }
 }

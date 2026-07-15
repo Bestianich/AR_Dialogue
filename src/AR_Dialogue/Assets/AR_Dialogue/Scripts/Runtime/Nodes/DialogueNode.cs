@@ -40,6 +40,7 @@ public class DialogueNode : ANode
             return;
         }
         textMesh.text = "";
+        base.OnNextNode();
     }
     
 }

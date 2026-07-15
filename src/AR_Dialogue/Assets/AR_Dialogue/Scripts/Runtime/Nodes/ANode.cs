@@ -32,7 +32,10 @@ using Object = System.Object;
 			HasBeenExecuted = true;
 		}
 
-		public virtual void OnNextNode(){}
+		public virtual void OnNextNode()
+		{
+			HasBeenExecuted = false;
+		}
 
 		public virtual Type GetNodeType()
 		{

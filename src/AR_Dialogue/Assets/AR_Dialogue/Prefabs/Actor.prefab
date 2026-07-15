@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5512457159938603938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8940914031478663902}
+  - component: {fileID: 48987049415380266}
+  m_Layer: 0
+  m_Name: Actor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8940914031478663902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512457159938603938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &48987049415380266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512457159938603938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6603458d33a4db58b7b48b08dc94efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AR_Dialogue::AR_Dialogue.Scripts.Runtime.Actor
+  _dialogueGraph: {fileID: 11400000, guid: e03be520cd154bf4bbcc67e229468f29, type: 2}
+  CurrentNode: {fileID: 0}
+  _mainCanvas: {fileID: 0}
+  _dialogueMemory:
+    MemoryDatas:
+    - Name: new Data#1
+      DataType: 0
+      Value:
+        rid: 3738613418135912604
+    - Name: Image
+      DataType: 7
+      Value:
+        rid: 3738613659821670400
+    - Name: 321435
+      DataType: 2
+      Value:
+        rid: 3738613418135912598
+    - Name: newData#4
+      DataType: 4
+      Value:
+        rid: -2
+    - Name: textMesh
+      DataType: 5
+      Value:
+        rid: 3738613659821670401
+    - Name: OptionHolder
+      DataType: 8
+      Value:
+        rid: 3738613637591597125
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 3738613418135912598
+      type: {class: String, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613418135912604
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+    - rid: 3738613637591597125
+      type: {class: ObjectWrapper, ns: , asm: AR_Dialogue}
+      data:
+        Target: {fileID: 0}
+    - rid: 3738613659821670400
+      type: {class: ObjectWrapper, ns: , asm: AR_Dialogue}
+      data:
+        Target: {fileID: 0}
+    - rid: 3738613659821670401
+      type: {class: ObjectWrapper, ns: , asm: AR_Dialogue}
+      data:
+        Target: {fileID: 0}

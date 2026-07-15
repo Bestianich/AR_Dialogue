@@ -25,7 +25,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: DefaultOutput
-        node: {fileID: 8933170234350147185}
+        node: {fileID: 2656309069733195923}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -37,7 +37,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: DefaultInput
-        node: {fileID: 4544854196159543272}
+        node: {fileID: 443526009857998277}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -107,18 +107,69 @@ MonoBehaviour:
   m_Name: newDialogueGraph
   m_EditorClassIdentifier: AR_Dialogue::DialogueGraph
   nodes:
-  - {fileID: 8933170234350147185}
   - {fileID: 1600142554920547868}
   - {fileID: -4109246062824780807}
   - {fileID: 4544854196159543272}
   - {fileID: -2100285110309195692}
   - {fileID: 8736419640262174540}
+  - {fileID: 443526009857998277}
+  - {fileID: 2656309069733195923}
   StartNode: {fileID: 1600142554920547868}
   DialogueMemory:
     MemoryDatas: []
   references:
     version: 2
     RefIds: []
+--- !u!114 &443526009857998277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: -56, y: 312}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 443526009857998277}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: -4109246062824780807}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 443526009857998277}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 4544854196159543272}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  CharacterSprite: {fileID: 0}
+  CharacterName: 
+  TextMeshReference: textMesh
+  Speech: Direttamente da Alchemy road
+  DialogueOptions: []
+  DefaultOutput: 0
 --- !u!114 &1600142554920547868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,12 +194,62 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: DefaultInput
-        node: {fileID: 8933170234350147185}
+        node: {fileID: 2656309069733195923}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
+  DefaultOutput: 0
+--- !u!114 &2656309069733195923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: -769.81177, y: -259.17407}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 2656309069733195923}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: 1600142554920547868}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 2656309069733195923}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: -4109246062824780807}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  CharacterSprite: {fileID: 0}
+  CharacterName: 
+  TextMeshReference: textMesh
+  Speech: Ciao sono Marcello
+  DialogueOptions: []
   DefaultOutput: 0
 --- !u!114 &4544854196159543272
 MonoBehaviour:
@@ -163,7 +264,7 @@ MonoBehaviour:
   m_Name: Choose Option
   m_EditorClassIdentifier: AR_Dialogue::ChooseOptionNode
   graph: {fileID: 11400000}
-  position: {x: 152, y: 24}
+  position: {x: 312, y: 8}
   ports:
     keys:
     - DefaultInput
@@ -176,7 +277,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: DefaultOutput
-        node: {fileID: -4109246062824780807}
+        node: {fileID: 443526009857998277}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -210,9 +311,9 @@ MonoBehaviour:
   ButtonPrefab: {fileID: 891921696300719988, guid: ef5cf7a43ee544e4fb0476e131bbc0e8, type: 3}
   RectTransformReference: OptionHolder
   DialogueOptions:
-  - Text: Ciao amico mio
+  - Text: "Marcello? Alchemy road? cosa \xE8?"
     PortName: firstPort
-  - Text: Ciao amico due
+  - Text: Ciao Marcello da quanto tempo!!
     PortName: secondPoirt
 --- !u!114 &8736419640262174540
 MonoBehaviour:
@@ -259,55 +360,5 @@ MonoBehaviour:
   CharacterName: Pietro
   TextMeshReference: textMesh
   Speech: Unooo
-  DialogueOptions: []
-  DefaultOutput: 0
---- !u!114 &8933170234350147185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
-  m_Name: Dialogue
-  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
-  graph: {fileID: 11400000}
-  position: {x: -712, y: -312}
-  ports:
-    keys:
-    - DefaultOutput
-    - DefaultInput
-    values:
-    - _fieldName: DefaultOutput
-      _node: {fileID: 8933170234350147185}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: DefaultInput
-        node: {fileID: -4109246062824780807}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: DefaultInput
-      _node: {fileID: 8933170234350147185}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: DefaultOutput
-        node: {fileID: 1600142554920547868}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  DefaultInput: 0
-  CharacterSprite: {fileID: 0}
-  CharacterName: 
-  TextMeshReference: textMesh
-  Speech: ereqasdas
   DialogueOptions: []
   DefaultOutput: 0

@@ -3,28 +3,36 @@ using System.Collections;
 using System.Collections.Generic;
 using AR_Dialogue.Scripts.Runtime;
 using UnityEngine;
+using UnityEngine.Serialization;
 using XNode;
 using Object = System.Object;
 
+	[WaitForPlayerInput(false)]
 	public abstract class ANode : Node
 	{
 		protected DialogueMemory _dialogueMemory;
 		protected Actor _actor;
+		protected bool _isInitialized = false;
+		public bool HasBeenExecuted { get; protected set; }
 
 		// Use this for initialization
 		public virtual void Init(DialogueMemory dialogueMemory , Actor actor)
 		{
+			if(_isInitialized)
+				return;
 			_dialogueMemory = dialogueMemory;
 			_actor = actor;
+			_isInitialized = true;
+			HasBeenExecuted = false;
 		}
 
 		//What the node does
-		public abstract void Execute();
-
-		public virtual void OnNextNode()
+		public virtual void Execute()
 		{
-			
+			HasBeenExecuted = true;
 		}
+
+		public virtual void OnNextNode(){}
 
 		public virtual Type GetNodeType()
 		{
@@ -72,6 +80,17 @@ using Object = System.Object;
 		public HasDynamicPortsAttribute(bool hasDynamicPorts)
 		{
 			HasDynamicPorts = hasDynamicPorts;
+		}
+	}
+
+	[AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]
+	public class WaitForPlayerInputAttribute : Attribute
+	{
+		public bool WaitForPlayerInput { get; }
+
+		public WaitForPlayerInputAttribute(bool waitForPlayerInput)
+		{
+			WaitForPlayerInput = waitForPlayerInput;
 		}
 	}
 

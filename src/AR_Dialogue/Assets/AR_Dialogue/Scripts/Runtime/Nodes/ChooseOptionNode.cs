@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[HasDynamicPorts(true)]
+[HasDynamicPorts(true)] [WaitForPlayerInput(true)]
 [NodeWidth(300)]
 public class ChooseOptionNode : ANode
 {
@@ -16,6 +16,8 @@ public class ChooseOptionNode : ANode
 
     public override void Execute()
     {
+        if(HasBeenExecuted)
+            return;
         var rect = _dialogueMemory.Get(RectTransformReference) as RectTransform;
         if (rect == null)
         {
@@ -29,6 +31,7 @@ public class ChooseOptionNode : ANode
             button.Init(option.Text, option.PortName, _actor);
             _buttonInstances.Add(button);
         }
+        HasBeenExecuted = true;
     }
 
     public override void OnNextNode()

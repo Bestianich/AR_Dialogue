@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using XNode;
 
+[WaitForPlayerInput(true)]
 [NodeWidth(300)]
 public class DialogueNode : ANode
 {
@@ -18,6 +19,7 @@ public class DialogueNode : ANode
 
     public override void Execute()
     {
+        base.Execute();
         TextMeshProUGUI textMesh = _dialogueMemory.Get(TextMeshReference) as TextMeshProUGUI;
         if (textMesh == null)
         {
@@ -26,6 +28,18 @@ public class DialogueNode : ANode
         }
 
         textMesh.text = Speech;
+    }
+    
+
+    public override void OnNextNode()
+    {
+        TextMeshProUGUI textMesh = _dialogueMemory.Get(TextMeshReference) as TextMeshProUGUI;
+        if (textMesh == null)
+        {
+            Debug.LogWarning($"TextMesh: {TextMeshReference} reference not found!!");
+            return;
+        }
+        textMesh.text = "";
     }
     
 }

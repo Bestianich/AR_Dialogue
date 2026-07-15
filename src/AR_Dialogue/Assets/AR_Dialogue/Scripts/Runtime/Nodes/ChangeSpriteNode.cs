@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
+    [WaitForPlayerInput(false)]
     [NodeWidth(300)]
     public class ChangeSpriteNode : ANode
     {
@@ -12,6 +12,7 @@ using UnityEngine.UI;
 
         public override void Execute()
         {
+            base.Execute();
             Image image = _dialogueMemory.Get(ImageMemoryReference) as Image;
             if (image == null)
             {
@@ -21,5 +22,6 @@ using UnityEngine.UI;
 
             image.sprite = Sprite;
         }
+        
         
     }

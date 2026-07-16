@@ -10,11 +10,8 @@ using XNode;
 public class DialogueNode : ANode
 {
     [Input] public int DefaultInput;
-    public Sprite CharacterSprite;
-    public string CharacterName;
     public string TextMeshReference;
-    [TextArea(5, 10)] public string Speech;
-    public List<DialogueOption> DialogueOptions = new List<DialogueOption>();
+    [FormerlySerializedAs("Speech")] [TextArea(5, 10)] public string Text;
     [Output] public int DefaultOutput;
 
     public override void Execute()
@@ -27,7 +24,7 @@ public class DialogueNode : ANode
             return;
         }
 
-        textMesh.text = Speech;
+        textMesh.text = Text;
     }
     
 

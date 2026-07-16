@@ -36,11 +36,11 @@ namespace AR_DialogueEditor
             _showDialogueSettings = EditorGUILayout.BeginFoldoutHeaderGroup(_showDialogueSettings, "Dialogue Settings");
             if (_showDialogueSettings)
             {
-             
+                
                 float prevWidth = EditorGUIUtility.labelWidth;
                 EditorGUIUtility.labelWidth = 150;
-                NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("CharacterName"));
-                EditorGUIUtility.labelWidth = prevWidth;
+                // NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("CharacterName"));
+                // EditorGUIUtility.labelWidth = prevWidth;
                 
                 
                 // prevWidth = EditorGUIUtility.labelWidth;
@@ -53,7 +53,7 @@ namespace AR_DialogueEditor
                 NodeEditorGUILayout.PropertyField( serializedObject.FindProperty("TextMeshReference"));
                 EditorGUIUtility.labelWidth = prevWidth;
                 
-                NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("Speech"));
+                NodeEditorGUILayout.PropertyField(serializedObject.FindProperty("Text"));
                 
                 
                

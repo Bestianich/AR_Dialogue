@@ -38,7 +38,15 @@ public class ARInputHandler : MonoBehaviour , ARInputActions.IVisualNovelActions
 
     public void OnMousePosition(InputAction.CallbackContext context)
     {
+        
         var mousePos = context.ReadValue<Vector2>();
+        if (CurrentInteractable != null)
+        {
+            if (!CurrentInteractable.IsBeignInteracted)
+                CurrentInteractable = null;
+            else 
+                return;
+        }
         //Debug.Log(mousePos);
         if (Physics.Raycast(Camera.main.ScreenPointToRay(mousePos), out RaycastHit hit))
         {

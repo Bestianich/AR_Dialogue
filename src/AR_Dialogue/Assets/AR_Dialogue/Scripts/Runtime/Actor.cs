@@ -11,6 +11,7 @@ public class Actor : MonoBehaviour , ARInteractable
     public ANode CurrentNode;
     [SerializeField] private GameObject _mainCanvas;
     [SerializeField] private DialogueMemory _dialogueMemory;
+    private bool _isDialougeEnded = false;
     
     private void Awake()
     {
@@ -51,8 +52,8 @@ public class Actor : MonoBehaviour , ARInteractable
     public void NextNode(string outPortField)
     {
         CurrentNode.OnNextNode();
-        NodePort nodePort = null;
         
+        NodePort nodePort = null;
         //First I check the dynamicOutputPorts
         foreach (var dynamicPort in CurrentNode.DynamicOutputs)
         {
@@ -75,9 +76,10 @@ public class Actor : MonoBehaviour , ARInteractable
         if (!nodePort.IsConnected)
         {
             Debug.LogWarning("Outport port is not connected to anything. Is the dialogue graph ended?");
+            _isDialougeEnded = true;
             return;
         }
-
+        
         CurrentNode = Instantiate(nodePort.Connection.node as ANode);
         
         //var requireInput = CurrentNode.GetType().GetCustomAttribute(typeof(WaitForPlayerInputAttribute)) as WaitForPlayerInputAttribute;
@@ -94,8 +96,10 @@ public class Actor : MonoBehaviour , ARInteractable
     public void OnEnterInteraction()
     {
         if(IsBeignInteracted) return;
+        if(_isDialougeEnded) return;
         IsBeignInteracted = true;
         _mainCanvas.SetActive(true);
+        
     }
 
     public void Interact()

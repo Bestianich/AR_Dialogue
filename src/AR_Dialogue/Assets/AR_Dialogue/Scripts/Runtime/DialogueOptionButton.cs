@@ -27,7 +27,7 @@ public class DialogueOptionButton : MonoBehaviour
     public void OnClick()
     {
         _actor.NextNode(_outPortField);
-        _actor.Parse();
+        //_actor.Parse();
     }
     
 }

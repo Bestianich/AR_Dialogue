@@ -30,7 +30,7 @@ public class DialogueMemoryDrawer : PropertyDrawer
         EditorGUI.BeginProperty(position, label, property);
         Rect headerRect = new Rect(position.x, position.y + _itemHeight, position.width, EditorGUIUtility.singleLineHeight);
         
-        EditorGUI.LabelField(headerRect, "DIALOGUE DATA", _centeredStyle);
+        EditorGUI.LabelField(headerRect, "DIALOGUE MEMORY", _centeredStyle);
         
         
         

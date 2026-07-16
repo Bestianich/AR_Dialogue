@@ -32,6 +32,7 @@ using Object = System.Object;
 			HasBeenExecuted = true;
 		}
 
+		//What it does when this node change to next one
 		public virtual void OnNextNode()
 		{
 			HasBeenExecuted = false;

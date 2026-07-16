@@ -1,10 +1,29 @@
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using AR_Dialogue.Scripts.Runtime;
 using UnityEngine;
+using XNode;
 
 
-    [CreateAssetMenu(fileName = "new DialogueGraph", menuName = "AR_Dialogue/DialogueGraph", order = 0)]
-    public class DialogueGraph : ScriptableObject
+[CreateAssetMenu(fileName = "newDialogueGraph", menuName = "AR_Dialogue/New Dialogue Graph")]
+public class DialogueGraph : NodeGraph
+{
+    public StartNode StartNode;
+
+    public DialogueMemory DialogueMemory;
+    
+
+    //Check to set the StartNode of the DialogueGraph
+    public override Node AddNode(Type type)
     {
-        public List<ANode> Nodes = new List<ANode>();
-        public StartNode StartNode;
+        if (type == typeof(StartNode))
+        {
+            StartNode = base.AddNode(type) as StartNode;
+            return StartNode;
+        }
+
+        return base.AddNode(type);
     }
+
+}

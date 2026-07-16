@@ -1,0 +1,584 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7225865274272086789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 680, y: 120}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: -7225865274272086789}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: 8173159888553115730}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: -7225865274272086789}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 7230750411306183138}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  TextMeshReference: textMesh
+  Text: "Ma forse \xE8 meglio cosi..."
+  DefaultOutput: 0
+--- !u!114 &-6500073510233839471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c9db7b0d6a4393b632fda54aed23d1, type: 3}
+  m_Name: Change Sprite
+  m_EditorClassIdentifier: AR_Dialogue::ChangeSpriteNode
+  graph: {fileID: 11400000}
+  position: {x: 2200, y: 824}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: -6500073510233839471}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: 1399141513687367170}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: -6500073510233839471}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: -4506095013958527057}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  ImageMemoryReference: MagnetoScene
+  Sprite: {fileID: 21300000, guid: fec4bb214d4239345bc75341723d2fc2, type: 3}
+  DefaultOutput: 0
+--- !u!114 &-4506095013958527057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 2648, y: 552}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: -4506095013958527057}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: -6500073510233839471}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: -4506095013958527057}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 1118984813724941366}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  TextMeshReference: textMesh
+  Text: GRWAH!! Guarda cosa potevo diventare!!!!!
+  DefaultOutput: 0
+--- !u!114 &-2350356902633919816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fa7c05f857448490c3cd9ead9b027a, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: AR_Dialogue::StartNode
+  graph: {fileID: 11400000}
+  position: {x: -888, y: -40}
+  ports:
+    keys:
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultOutput
+      _node: {fileID: -2350356902633919816}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 698052288658286908}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultOutput: 0
+--- !u!114 &-1705425200858947330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: -104, y: 8}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: -1705425200858947330}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: 698052288658286908}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: -1705425200858947330}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 8173159888553115730}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  TextMeshReference: textMesh
+  Text: Ciao sono Magneto....
+  DefaultOutput: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6eeed0b72dde941af044d945c0979b, type: 3}
+  m_Name: MagnetoDialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueGraph
+  nodes:
+  - {fileID: -2350356902633919816}
+  - {fileID: -1705425200858947330}
+  - {fileID: 698052288658286908}
+  - {fileID: 8173159888553115730}
+  - {fileID: -7225865274272086789}
+  - {fileID: 7230750411306183138}
+  - {fileID: 7661247127522612606}
+  - {fileID: 5608206160267033657}
+  - {fileID: 1399141513687367170}
+  - {fileID: -4506095013958527057}
+  - {fileID: 1118984813724941366}
+  - {fileID: -6500073510233839471}
+  StartNode: {fileID: -2350356902633919816}
+  DialogueMemory:
+    MemoryDatas:
+    - Name: new Data#1
+      DataType: 0
+      Value:
+        rid: 3738613694057414808
+  references:
+    version: 2
+    RefIds:
+    - rid: 3738613694057414808
+      type: {class: Int32, ns: System, asm: mscorlib}
+      data: 
+--- !u!114 &698052288658286908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c9db7b0d6a4393b632fda54aed23d1, type: 3}
+  m_Name: Change Sprite
+  m_EditorClassIdentifier: AR_Dialogue::ChangeSpriteNode
+  graph: {fileID: 11400000}
+  position: {x: -488, y: 72}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 698052288658286908}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: -2350356902633919816}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 698052288658286908}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: -1705425200858947330}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  ImageMemoryReference: Image
+  Sprite: {fileID: 21300000, guid: 8282e9cab00398e49a34b08f338ea24c, type: 3}
+  DefaultOutput: 0
+--- !u!114 &1118984813724941366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6d162a336525e4e933aad986e78c98, type: 3}
+  m_Name: Exit Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::ExitDialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 3176, y: 712}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 1118984813724941366}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: -4506095013958527057}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 1118984813724941366}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  DefaultOutput: 0
+--- !u!114 &1399141513687367170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1c9db7b0d6a4393b632fda54aed23d1, type: 3}
+  m_Name: Change Sprite
+  m_EditorClassIdentifier: AR_Dialogue::ChangeSpriteNode
+  graph: {fileID: 11400000}
+  position: {x: 2120, y: 520}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 1399141513687367170}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: 5608206160267033657}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 1399141513687367170}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: -6500073510233839471}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  ImageMemoryReference: Image
+  Sprite: {fileID: 21300000, guid: fec4bb214d4239345bc75341723d2fc2, type: 3}
+  DefaultOutput: 0
+--- !u!114 &5608206160267033657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1797.1832, y: 449.96982}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 5608206160267033657}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: 7661247127522612606}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 5608206160267033657}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 1399141513687367170}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  TextMeshReference: textMesh
+  Text: Io... Io al solo pensarci mi arrabbio!!!
+  DefaultOutput: 0
+--- !u!114 &7230750411306183138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1067.2307, y: 207.39713}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 7230750411306183138}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: -7225865274272086789}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 7230750411306183138}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 7661247127522612606}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  TextMeshReference: textMesh
+  Text: Io dovevo essere il protagonista del dungeon crawler dell'anno scorso....
+  DefaultOutput: 0
+--- !u!114 &7661247127522612606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 1432, y: 296}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 7661247127522612606}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: 7230750411306183138}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 7661247127522612606}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: 5608206160267033657}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  TextMeshReference: textMesh
+  Text: Ma alla fine non c'era niente in quel progetto e quindi sono diventato solo
+    un misero Item da inventario....
+  DefaultOutput: 0
+--- !u!114 &8173159888553115730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0955c3355f3140e5a3412ec11a6d4939, type: 3}
+  m_Name: Dialogue
+  m_EditorClassIdentifier: AR_Dialogue::DialogueNode
+  graph: {fileID: 11400000}
+  position: {x: 264, y: 88}
+  ports:
+    keys:
+    - DefaultInput
+    - DefaultOutput
+    values:
+    - _fieldName: DefaultInput
+      _node: {fileID: 8173159888553115730}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultOutput
+        node: {fileID: -1705425200858947330}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: DefaultOutput
+      _node: {fileID: 8173159888553115730}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: DefaultInput
+        node: {fileID: -7225865274272086789}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  DefaultInput: 0
+  TextMeshReference: textMesh
+  Text: Probabilmente non mi conosci....
+  DefaultOutput: 0
